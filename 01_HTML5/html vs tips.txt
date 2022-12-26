@@ -1,0 +1,4 @@
+html
+ctrl p   +   s  확장적용
+! + tab 처음 문서 생성 후 프레임짜기
+ctrl+shift + k   한 줄 삭제
