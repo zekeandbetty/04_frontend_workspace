@@ -1,4 +1,11 @@
 html
-ctrl p   +   s  확장적용
+ctrl q   +   s  확장적용(영어로 쳐야함)
 ! + tab 처음 문서 생성 후 프레임짜기
 ctrl+shift + k   한 줄 삭제
+colspan = "2" : 2개의 열을 합치기 (가로로 뚫기)
+rowspan = "2" : 2개의 행을 합치기   
+다섯줄 => <tr>
+            <td></td>
+         </tr>         이 다섯개 
+<img src="resources/image/river1.PNG">  여기서 src="re 부분에 공백있으면 이미지 안뜸
+아이디 호출시 # 이용
