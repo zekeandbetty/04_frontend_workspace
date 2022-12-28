@@ -9,3 +9,6 @@ rowspan = "2" : 2개의 행을 합치기
          </tr>         이 다섯개 
 <img src="resources/image/river1.PNG">  여기서 src="re 부분에 공백있으면 이미지 안뜸
 아이디 호출시 # 이용
+textarea 여는태그와 닫는태그 사이에 공백있으면 placeholder가 안보임
+드래그하고 ctrl + / -> 주석처리
+input에서 name을 입력해주어야 서버로 넘어감
