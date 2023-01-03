@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹 문서구조</title>
+    <style>
+        div{box-sizing: border-box; border: 1px solid red;}
+
+        /*전체 감싸는 div*/
+        .wrap{
+            width: 1000px;
+            height: 800px;
+            margin: auto; /*정가운데 배치*/
+        }
+
+        /* 공통적인 속성 */
+        .wrap>div{ /*후손은 말고 자손만 변경해야함*/
+            width: 100%;
+
+        }
+
+        #header, #footer{
+            height: 20%;
+        }
+        #content{
+            height: 60%;
+        }
+
+        #content>div{
+            height: 100%;
+            float: left;
+        }
+        #content_1{width: 80;}
+        #content_2{width: 20%;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+<br>
+<div class="wrap">
+    <div id="header"></div>
+    <div id="content">
+        <div id="content_1"></div>
+        <div id="content_2"></div>
+    </div>
+    <div id="footer"></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+</body>
+</html>

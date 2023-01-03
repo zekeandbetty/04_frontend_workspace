@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃 관련 스타일</title>
+    <style>
+        .size_test{border: 10px solid red}
+        #test1{width: 400px; height: 200px;} /*가로세로 400, 200은 컨텐츠만의 크기임/요소 자체의 크기는 컨텐츠 + 패딩 + 보더*/
+        #test2{width: 50%; height: 150px;}
+
+        .red{background-color: red;}
+        .yellow{background-color: yellow;}
+        .pink{background-color: pink;}
+        .green{background-color: green;}
+        .purple{background-color: purple;}
+
+        .display-test{
+            border: 1px solid black;
+            width: 150px; 
+            height: 150px;
+        }
+
+        .inline{display: inline;} /*inline사용시 위에서 가로 세로 지정한게 무시됨*/
+
+
+        .inline-block{display: inline-block}
+        .block{display:block;}
+
+    </style>
+</head>
+<body>
+<!--
+    블럭요소 : 한 줄로 영역을 차지하고 있는 요소 / 줄바꿈 발생(div, p, pre, h)
+    인라인요소 : content 부분만 영역을 차지하고 있는 요소 / 옆으로 배치(span, label, input, img, 글자관련태그들)
+
+    *요소 영역 == content 영역 + padding 영역(안쪽여백) +  border 영역
+    요소 바깥쪽 영역 == margin영역 (바깥쪽 간격)
+-->
+
+<h1>레이아웃 관련 스타일</h1>
+<h3>width, height</h3>
+<p>기본적으로 내용을 차지하는 content 영역의 가로, 세로 길이 조절하는 스타일 속성</p>
+
+<h4>고정크기(px)</h4>
+<div id="test1" class="size_test"></div>
+
+<h4> 가변크기(%)</h4>
+<div id="test2" class="size_test"></div>
+
+<hr>
+
+<h3>display : 화면 배치 방법 변경</h3>
+<pre>
+    선택자{
+        display: inline | block | inline-block; 
+    }
+</pre>
+
+<h4>display : inline</h4>
+
+
+
+<div class="display-test inline red">첫번쨰</div>
+<div class="display-test inline yellow">두번쨰</div>
+<div class="display-test inline pink">세번쨰</div>
+<div class="display-test inline green">네번쨰</div>
+<div class="display-test inline purple">다섯번쨰</div>
+<br>
+<B>display:inline 하게 되면 width와 height 스타일 속성은 적용되지 않음</B>
+<hr>
+
+
+<h4>display:inline-block</h4>
+
+<div class="display-test inline-block red" >첫번쨰1</div> <!--div끼리 개행 안하면 딱 붙음-->
+<div class="display-test inline-block yellow">두번쨰</div>
+<div class="display-test inline-block pink">세번쨰</div>
+<div class="display-test inline-block green">네번쨰</div>
+<div class="display-test inline-block purple">다섯번쨰</div>
+<br>
+<b>display:inline-block하게 되면 width와 height속성은 유지한채로 inline요소로 변경된다.</b>
+
+
+<h4>display:block</h4>
+<!--기존에 inline요소인 span => 블럭요소로 바꾸기-->
+<span class="displaytest block red"></span>
+<span class="displaytest block yellow"></span>
+<span class="displaytest block pink"></span>
+<span class="displaytest block green"></span>
+<span class="displaytest block purple"></span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br><br><br><br>    
+<br><br><br><br><br>    
+<br><br><br><br><br>    
+<br><br><br><br><br>    
+<br><br><br><br><br>    
+<br><br><br><br><br>    
+<br><br><br><br><br>    
+<br><br><br><br><br>    
+<br><br><br><br><br>    
+<br><br><br><br><br>    
+<br><br><br><br><br>    
+</body>
+</html>

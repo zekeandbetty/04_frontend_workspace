@@ -24,6 +24,31 @@
         #div2{background-clip: padding-box;}
         #div3{background-clip: content-box;}
 
+        #test{
+            border: 1px solid black;
+            width: 70%;
+            height: 800px;
+
+          background-image: url("resources/image/bgsample.PNG");
+          background-repeat: repeat; /*기본값*/
+          background-repeat: repeat-x;
+          background-repeat: repeat-y;
+          background-repeat: no-repeat;
+          background-size: auto; /*기본값*/
+          background-size: contain; /*빈 부분 채우고 끝남*/
+          background-size: cover;
+          background-size: 300px 200px;
+          background-size: 50% 50%;
+          background-position: left top; /*기본값*/
+          background-position: right top;
+          background-position: right bottom;
+          background-position: center bottom;
+          background-position: center center;
+          background-position: 50% 50%; /*가운데정렬*/
+          background-attachment: scroll; /*기본값*/
+          background-attachment: fixed;
+        }
+
 
 
     </style>
@@ -51,5 +76,118 @@
     <div class="div-test" id="div3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis, voluptatum doloribus. Autem alias saepe consectetur sint hic architecto. Excepturi aut amet et reiciendis facere non dolor vel fugit dolores! Tempora!</div>
 
 
+    <hr>
+
+    <h3>배경 이미지 테스트</h3>
+    <pre>
+        선택자 {
+            background-image:url("이미지 경로");
+            background-repeat | repeat-x | repeat-y | no-repeat;
+            background-size:auto | contain | cover | px-px | % %;
+            background-position:좌/우/가운데 위/아래/가운데 | px px | % %;
+            background-attachment:scroll| fixed;
+        }
+    </pre>
+
+
+    <!-- #test하면 기본적으로 div로 생성됨 -->
+    <div id="test"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
