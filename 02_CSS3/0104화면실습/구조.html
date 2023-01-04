@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gogreen구조</title>
+    <style>
+        div{box-sizing: border-box; border: 1px solid skyblue;}
+
+
+
+
+
+
+        .wrap{
+            margin: auto;
+            width: 1000px;
+            height: 800px;
+        }
+
+        .wrap>div{
+            float: left;
+            width: 100%;
+        }
+
+        .head>div{
+            float: left;
+            height: 100%;
+        }
+
+        
+
+        .content{
+            float: left;
+            height: 100%;
+        }
+        
+
+        .footer{
+            float: left;
+            height: 100%;
+        }
+
+
+        li{
+            list-style: none;
+            float: left;
+            text-decoration-line: none;
+            font-size: 18px;
+            /* vertical-align: middle; */
+            color: white;
+        }
+        .content>div{float: left;}
+
+      
+    
+        
+
+
+
+
+
+
+        .head{
+            width: 100%;
+            height: 15%;
+        }
+
+        .navigator{
+            position: relative;
+            width: 100%;
+            height: 5%;
+        }
+
+        .content{
+           
+            height: 65%;
+        }
+
+        .footer{
+            width: 100%;
+            height: 15%;
+        }
+
+        /* 헤드 */
+        #header1{width: 20%; height: 100%; background-image: url(images/logo.jpg); background-repeat: no-repeat; background-position: center; } 
+        #header2{ width: 60%; height: 100%; background-image: url(images/mainlogo.jpg); background-repeat: no-repeat; background-position: center;}
+        #header3{ width: 20%; height: 100%;}
+
+        /* 네비게이터 */
+        #navigator{
+
+        }
+
+        #navigator1{width: 25%; text-align: center; display: block;}
+        #navigator2{width: 25%; text-align: center;}
+        #navigator3{width: 25%; text-align: center;}
+        #navigator4{width: 25%; text-align: center; }
+
+        /* 콘텐츠 */
+        #content1{width: 20%; height: 100%; background-image: url(images/left_img.jpg); background-repeat: no-repeat;  background-size: contain;}
+        #content2{width: 25%; height: 50%; background-image: url(images/main_img1.jpg); background-repeat: no-repeat;  background-size: contain;} 
+        #content3{width: 25%; height: 50%; background-image: url(images/main_img2.jpg); background-repeat: no-repeat; background-size: contain;} 
+        #content4{width: 25%; height: 50%; background-image: url(images/main_img3.jpg); background-repeat: no-repeat; background-size: contain;}
+        #content5{width: 25%; height: 50%; background-image: url(images/main_img4.jpg); background-repeat: no-repeat; background-size: contain;}
+        #content6{width: 30%; height: 20%;}
+        #content7{width: 30%; height: 50%; background-image: url(images/right_img.jpg); background-repeat: no-repeat; background-size: contain;}
+        #content8{width: 30%; height: 30%;}
+
+        
+
+      
+        
+        /* 푸터 */
+        .footer{background-image: url(images/footer.JPG);}
+
+
+
+        
+
+        </style>
+</head>
+<body> <br>
+<div class="wrap">
+
+
+ <div class="head">
+  <div id="header1"></div>
+  <div id="header2"></div>
+  <div id="header3"></div>
+</div>
+
+
+<div class="navigator" style="background-color: green;">
+ <ul>
+    <li id="navigator1">Home</li>
+    <li id="navigator2">Profile</li>
+    <li id="navigator3">Board</li>
+    <li id="navigator4">Contract</li>
+ </ul>
+</div>
+
+
+<div class="content">
+    <div id="content1"></div>
+    <div id="content2"></div>
+    <div id="content3"></div>
+    <br>
+    <div id="content4"></div>
+    <div id="content5"></div>
+    <div id="content6"></div>
+    <div id="content7"></div>
+    <div id="content8"></div>
+
+    
+
+
+
+</div>
+<div class="footer">
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+</body>
+</html>

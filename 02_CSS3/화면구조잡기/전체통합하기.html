@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* div, form, input{box-sizing: border-box; border: 1px solid skyblue; } */
+
+        .wrap{
+            margin: auto;
+            width: 1000px;
+            height: 800px;
+        }
+
+
+
+        .wrap>div{
+            float: left;
+            width: 100%;
+        }
+
+        .head>div{
+            float: left;
+            height: 100%;
+        }
+
+       
+
+        .content>div{
+            float: left;
+            height:  100%;
+        }
+
+        
+
+
+
+        .head{
+            height: 20%;
+        }
+
+
+        .navigator{
+            height: 5% ;
+        }
+
+        .content{
+            height: 55%;
+        }
+
+        .footer{
+            height:20% ;
+        }
+
+
+
+        #head1{
+            width: 20%;
+        }
+        #head2{
+            width: 70%;
+        }
+        #head3{
+            width: 10%;
+        }
+
+        #c1{
+            width: 10%;
+        }
+        #c2{
+            width: 60%;
+        }
+        #c3{
+            width: 30%;
+        }
+
+      li{
+            list-style: none;
+            float: left;
+            text-decoration-line: none;
+        }
+
+
+        /* 푸터바 */
+        /* div{box-sizing: border-box; border: 1px solid red;} */
+        #footer>div{width: 100%;}
+        #footer_1{height: 20%;}
+        #footer_2{height: 80%;}
+
+        #footer_2>p{
+            width: 100%;
+            /* border: 1px solid blue; */
+            box-sizing: border-box;
+            margin: 0;
+            font-size: 12px;
+            color: rgb(149, 128, 128);
+        }
+
+        #p1{height: 80%; padding: 5px 15px;}
+        #p2{height: 20%; text-align: center; }
+
+        #footer_1>a{
+            text-decoration: none;
+            color: rgb(149, 128, 128);
+            font-weight: 600;
+            margin: 15px;
+            vertical-align: middle; /*수직정렬 -> 가운데 (가끔 안되는 태그들이 있음)*/
+        }
+
+
+
+        /* 로그인폼 */
+        /* div, form{box-sizing:  border-box; border: 1px solid red;} */
+        /* #c3{width: 300; height: 600px;} 여기까지 이 스타일은 안 가져감 */
+
+        #login_form{width: 100%; height: 20%;}
+        #login_form>*{width: 100%;}
+
+        #login_form_input{height: 70%;}
+        #login_form_etc{height: 30%; text-align: center;}
+
+        #login_form_input>div{height: 100%; float: left;}
+        #login_input_id_pwd{width: 65%;}
+        #login_input_btn{width: 35%;}
+
+        #login_form_etc>a{
+            text-decoration: none; 
+            /* color: black; */
+            font-size: 12px;
+            margin: 10px;
+            vertical-align: middle;
+        }
+
+        #login_input_id_pwd>input{box-sizing: border-box; width: 100%; height: 50%; }
+
+        #login_input_btn>input{width: 100%; height: 100%; background-color: yellowgreen;}
+
+
+        /* 검색창 */
+        /* div,form, input{box-sizing: border-box; border: 1px solid red;} */
+        /* #head2{width: 600px; height: 150px;} 이 스타일은 안가져간다 */
+
+        #head2{position: relative;}
+
+        #search_form{
+            width: 80%;
+            height: 20%;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        /* 중앙배치공식-> 가장바깥(head2)에 {position: relative;}, 중앙에 배치할것에 margin: auto; position: absolute; top: 0;
+            bottom: 0; left: 0; right: 0; (상하좌우로 극단으로 가려해서 결국 중앙에 배치됨)*/
+
+        #search_form>div{height: 100%; float: left;}
+        #search_text{width: 80%;}
+        #search_btn{width: 20%;}
+
+
+        /* 후손선택자 */
+        #search_form input{box-sizing: border-box; width: 100%; height: 100%;}
+
+
+
+
+        
+
+        /* 내비게이터 */
+        #navi{
+            list-style-type: none;
+            padding: 0; /*이거 안써주면 기본적으로 들여써져 있음*/
+            margin: 0;
+            height: 100%;
+        }
+
+        #navi>li{
+            float: left;
+           
+            width: 15%;
+            height: 100%;
+            text-align: center;
+        }
+
+        #navi a{
+          
+           
+            text-decoration: none;
+            color: orange;
+            font-size: 18px;
+            font-weight: 900;
+
+            /* 메뉴바에 가까워졌을때 스타일 부여 */
+            width: 100%;
+            height: 100%; /*여기까지 해도 안됨-> 인라인요소이기 때문에*/
+            display: block; /*블럭요소로 변경해야 width, height 적용됨*/
+
+            /* vertical-align: middle;  블럭일때는 안된다  */
+            line-height: 35px;
+            transform: scale(1); /*호버해서 뜨는 목록 안꺼지게 함*/
+        }
+
+        #navi a:hover{
+            color: orangered;
+        }
+
+        #navi>li>ul{
+            list-style-type: none;
+            padding: 0;  /*들여쓰기 제거*/
+            margin: 0;   /*들여쓰기 제거*/
+            display: none; /*일단은 안보여지게 함*/
+        }
+
+        #navi>li>ul a{font-size: 15px;}
+
+        #navi>li>a:hover+ul{display: block;} /*호버시 목록 보여줌*/
+        #navi>li>ul:hover{display: block;}  /*호버시 목록 떠있게 유지*/
+
+
+
+    </style>
+<body>
+    <br><br><br><br>
+
+
+<div class="wrap">
+        <div class="head">
+            <div id="head1"></div>
+            <div id="head2">
+
+                    <form action="" id="search_form">
+                
+                        <div id="search_text">
+                            <input type="text" name="keyword">
+                        </div>
+                        
+                        <div id="search_btn">
+                            <input type="submit" value="검색">
+                        </div>
+                
+                    </form>
+                
+                
+
+            </div>
+            
+            <div id="head3">
+            
+            </div>
+        </div>
+
+        <div class="navigator">
+            <ul id="navi">
+                <li><a href="#">Java</a></li>
+                <li><a href="#">Oracle</a></li>
+                <li><a href="#">Front-End</a>
+                    <ul>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#">CSS</a></li>
+                        <li><a href="#">JavaScript</a></li>
+                        <li><a href="#">jQuery</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Server</a>
+                    <ul>
+                        <li><a href="#">JDBC</a></li>
+                        <li><a href="#">Servlet</a></li>
+                        <li><a href="#">JSP</a></li>
+                        <li><a href="#">AJAX</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Framework</a>
+                    <ul>
+                        <li><a href="#">myBatis</a></li>
+                        <li><a href="#">Spring</a></li>
+                    </ul>
+                </li>
+    
+            </ul>
+        </div>
+
+        <div class="content">
+            <div id="c1"></div>
+            <div id="c2"></div>
+            <div id="c3">
+                   <!-- 1.로그인폼 전체를 감싸는 div -->
+        <div id="login_form">
+
+
+            <!-- 2_1.입력을 받아 요청할 수 있는 form -->
+            <form action="" id="login_form_input">
+
+                <!-- 3_1. id/pwd 텍스트 상자가 들어갈 div -->
+                <div id="login_input_id_pwd">
+                    <input type="text" name="userId" placeholder="아이디를 입력해주세요" required>
+                    <input type="password" name="userPwd" placeholder="비밀번호를 입력해주세요" required>
+                </div>
+
+                <!-- 3_2.로그인 버튼이 들어갈 div -->
+                <div id="login_input_btn">
+                    <input type="submit" value="로그인">
+                </div>
+
+            </form>
+
+            <!-- 2_2.회원가입, id/pwd 찾기 링크 영역 -->
+            <div id="login_form_etc">
+                <a href="#">회원가입</a>
+                <a href="#">ID/PWD 찾기</a>
+
+
+            </div>
+        </div>
+
+
+
+
+            </div>
+        </div>
+
+
+        <div class="footer">
+            <div id="footer_1">
+                <a href="#">이용약관</a> |
+                <a href="#">개인정보취급방침</a> |
+                <a href="#">인재채용</a> |
+                <a href="#">고객센터</a> |
+            </div>
+            <div id="footer_2">
+                <p id="p1">
+                    강남지원 1관 : 서울특별시 강남구 테헤란로14길 6 남도빌딩 2F, 3F, 4F, 5F, 6F <br>
+                    강남지원 2관 : 서울특별시 강남구 테헤란로10길 9 그랑프리 빌딩 4F, 5F, 7F <br>
+                    강남지원 3관 : 서울특별시 강남구 테헤란로 130 호산빌딩 5F, 6F <br>
+                    종로지원 : 서울특별시 중구 남대문로 120 그레이츠 청계(구 대일빌딩) 2F, 3F <br>
+                    당산지원 : 서울특별시 영등포구 선유동2로 57 이레빌딩(구관) 19F, 20F   
+                </p>
+                <p id="p2">
+                    Copyright © 1998-2023 KH Information Educational Institute All Right Reserved
+                </p>
+            </div>
+        </div>
+
+        
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+</body>
+</html>
