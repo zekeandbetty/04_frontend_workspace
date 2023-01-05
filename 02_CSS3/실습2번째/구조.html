@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구조</title>
+    <style>
+        div, input {box-sizing: border-box; border: 1px solid red; }
+
+        
+      li{
+            list-style: none;
+            float: left;
+            text-decoration-line: none;
+        }
+
+        .wraps{
+            margin: auto;
+            width: 1500px;
+            height: 1200px;
+        }
+
+        .wraps>div{
+          float: left;
+          width: 100%;
+        }
+
+        .heads>div{
+            float: left;
+            height: 100%;
+        }
+
+        .navigator>div{
+            float: left;
+            height: 100%;
+            /* width: 100%; */
+        } 
+
+        .content_1>div{
+            float: left;
+            height: 100%;
+        }
+        .content_2>div{
+            float: left;
+            height: 100%;
+        }
+
+
+        .wraps>.heads{
+            height: 15%;
+        }
+        .wraps>.navigators{
+            height: 5%;
+        }
+        .wraps>.content_1{
+            height: 20%;
+        }
+        .wraps>.content_2{
+            height: 40% ;
+        }
+        .wraps>.footers{
+            height: 20%;
+        }
+
+
+        /* 헤드 */
+        #headers1{width: 20%; background-image: url(image/logo.PNG);  background-repeat: no-repeat; background-size: 200px 150px; background-position: center;}
+        #headers2{
+            position:relative;
+             width: 50%;
+            }
+        /* #headers2>#searchform{width: 80%;} */
+        #searchform{
+            width: 80%;
+            height: 40%;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        #searchform>div,input{ height: 100%; float: left;}
+        #searchText{width: 70%; height: 100%;} 
+        #searchPic{width: 10%;  height: 70%; background-image: url(image/search.png); background-position: center; background-repeat: no-repeat; background-size: contain; float: left;}
+
+        #headers3{width: 30%;}
+
+
+
+
+
+
+
+        /* 네비게이터 */
+       
+        .navigators>div{
+            float: left;
+            width: 20%;
+            height: 100%;
+            text-align: center;
+        }
+        .navigators>div{line-height: 45px; font-size: 25px; font-weight: 1000; color: gray}
+
+        #navigators1{width: 20%;}
+        #navigators2{width: 20%;}
+        #navigators3{width: 20%;}
+        #navigators4{width: 20%;}
+        #navigators5{width: 20%;}
+
+
+
+
+        #content_1_1{width:70% ; background-image: url(image/banner.PNG); background-repeat: no-repeat; background-position: center; background-size: 1150px 220px}
+        #content_1_3{width:30% ;}
+
+        #content2_1{width: 70%;}
+        #content2_right{width: 30%;}
+
+        /* #content_2_1_top{height: 50%; margin: 0; padding: 0; vertical-align: top;}
+        #content_2_1_bottom{height: 50%; margin: 0; padding: 0; vertical-align: bottom; } */
+
+
+
+        /* 로그인 */
+       /* #login_form{width: 100%; height: 80%;}
+        
+        #login_form>*{width: 100%;}
+        #login_form_input{ height: 80%;} 
+
+        #login_form_input>div{height: 100%; float: left;}
+         #login_input_id_pwd{width: 65%;} 
+        #login_input_btn{width: 35%;}
+
+        /* #loginInput{height: 80%;}
+        #login_input_id_pwd{width: 100%; height: 80%;} 
+        #id1{width: 70%; height: 80%;}
+        #pwd1{width: 70%; height: 80%;}  */
+        /* #login_btn{width: 30%; height: 80%;} 이상해짐*/
+        /* #loginInput{width: 100%;}
+        #login_form_etc{width: 100%; height: 20%; text-align: center; text-decoration-line: none; font-size: 22px; /*vertical-align: middle;}
+        #login_form_etc>a{color: black;}
+        #login_form_input>#login_btn>input{width: 30%; height: 80%;}
+        #login_btn>input{width: 30%; height: 80%; background-color: yellowgreen;} */ 
+        /* #login_form{width: 100%; height: 80%;}
+        #login_form>*{width: 100%;} */
+
+/* 
+        #login_form_input{height: 70%;}   
+        #login_form_etc{height: 20%; text-align: center;}
+
+        #login_form_input>div{height: 100%; float: left;}
+         #login_input_id_pwd{width: 65%;} 
+        #login_input_btn{width: 35%;}
+
+        #login_form_etc>a{
+            text-decoration: none; 
+            /* color: black; */
+            /* font-size: 12px;
+            margin: 10px;
+            vertical-align: middle;
+        } */
+
+        /* #login_input_id_pwd>input{box-sizing: border-box; width: 100%; height: 50%; }
+
+        #login_input_btn>input{width: 100%; height: 100%; background-color: yellowgreen;} */
+        /* #login_form_input>#login_input_id_pwd{width: 70%; height: 80%;}  */
+        
+        #login_form{width: 100%; height: 70%;}
+        #login_form>*{width: 100%;}
+        #login_form_input{height: 70%;}  
+        #login_form_etc{height: 30%; text-align: center;}
+        #login_form_input>div{height: 100%; float: left;}
+        #login_input_id_pwd{width: 65%;}
+        #login_input_btn{width: 35%;}
+        #login_input_id_pwd>input{box-sizing: border-box; width: 100%; height: 50%; }
+
+        #login_input_btn>input{width: 100%; height: 100%; background-color: yellowgreen;}
+
+
+        /* 차 사진 위아래 2개 */
+        #content_2_1{background-image: url(image/car.PNG);}
+        /* #content2_right{background-image: url(image/shopping.PNG); background-repeat: no-repeat; background-position: center; background-size: 450px 480px;} */
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body> <br>
+<div class="wraps">
+
+    <div class="heads">
+        <div id="headers1"></div>
+
+
+        <div id="headers2">
+            <form action="" id="searchform">
+
+                <input type="text" id="searchText" name="keyword">
+
+
+                <div id="searchPic"></div>
+            </form>
+
+
+
+        </div>
+
+        <div id="headers3"></div>
+
+    </div>
+
+
+<!--  -->
+    <div class="navigators">
+        <div id="navigators1">교육과정</div>
+        <div id="navigators2">교욱원소개</div>
+        <div id="navigators3">취업지원센터</div>
+        <div id="navigators4">산학연계</div>
+        <div id="navigators5">상담센터</div>
+    </div>
+
+
+
+
+    <!-- l            o        g                   i                        n -->
+    <div class="content_1">
+
+        <div id="content_1_1" ></div>
+
+        <div id="content_1_3" >
+        <div id="login_form">
+        <form action="#" id="login_form_Input">
+                <div id="login_input_id_pwd">
+                    <input type="text"  name="id1" placeholder="아이디를 입력하세요"> <br>
+                    <input type="password"  name="pwd1" placeholder="비밀번호를 입력하세요">
+                </div>
+
+                <div id="login_input_btn">
+                    <input type="submit" value="로그인">
+                </div>
+        </form>
+        </div>
+
+            <div id="login_form_etc" >
+              <a href="#" style="text-decoration-line: none ">아이디 |</a>
+              <a href="#" style="text-decoration-line: none ">비밀번호찾기 |</a>
+              <a href="#" style="text-decoration-line: none ">회원가입</a>
+            </div>
+
+
+       
+    </div> 
+
+
+
+
+    </div>
+
+    <div class="content_2">
+        <div id="content2_1"></div>
+           <!-- <div id="content_2_1_top"></div> -->
+
+        <div id="content2_right"> </div> 
+
+
+        
+    </div>
+
+    <div class="footers">
+        <p></p>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+</body>
+</html>
