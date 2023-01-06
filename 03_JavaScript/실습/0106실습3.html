@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습3</title>
+    <style>
+#p1{font-size: 30px; font-weight:600; font-size: 50px;}
+#infoSet{width: 250px; height: 200px; background-color: burlywood;}
+
+
+    </style>
+</head>
+<body>
+    <p id="p1">HTML 태그에 접근 테스트</p>
+    <p>단, 구매자는 태그 이름으로 접근, 상품명은 아이디로 접근, 구매가격은 name값으로 접근할 것</p>
+
+   
+    구매자 : <input type="text" id="customer" placeholder="구매자의 이름을 입력하세요."> <br>
+    상품명 : <input type="text" id="product" placeholder="구매 상품명을 입력하세요.">  <br>
+    가격 : <input type="text" id="price" placeholder="구매 가격을 입력하세요."> <br><br>
+
+    <button onclick="info">입력값 출력하기</button> <br><br>
+
+    <div id="infoSet"></div>
+    
+<!-- 
+    <script>
+        function info() {
+            var infoSet = document.getElementById(infoSet);
+            var input = document.getElementsByTagName(input);
+            infoSet.innerHTML="구매자 : " + customer.value;
+           
+        }
+    </script> -->
+<!-- 
+    <scrip>
+        function info(){
+            var prodcut = document.getElementById(product);
+            var infoSet = document.getElementById(infoSet);
+            infoSet.innerText="구입상품 : " +product.value;
+            infoSet.innerHTML= "구입상품 : " +product.value;
+
+        } -->
+
+
+    <script>
+        function info() {
+        var list = document.getElementsByTagName("input");
+        console.log(list[0]);
+        list[0].innerHTML= "구입상품 : " + customer.value;
+
+
+        
+
+        var product = document.getElementById("product");
+        var price = document.getElementsByName("price");
+        list[2].innerHTML = "가격 : " + price.value;
+        console.log(price);
+
+
+        
+        var infoSet = document.getElementById(infoSet);
+
+
+
+
+        console.log(list[0].innerText);
+        console.log(list[0].innerHTML);
+
+
+
+
+            // infoSet.innerText
+
+        }
+
+        
+
+        
+
+        
+
+       
+
+
+    </script>
+
+   
+
+
+
+
+
+
+
+</body>
+</html>

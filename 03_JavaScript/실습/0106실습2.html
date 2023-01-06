@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습2</title>
+    <style>
+.color{border: 1px solid black; width: 100px; height: 100px;}
+.size{border: 1px solid black; width: 100px; height: 100px;}
+
+p{font-size: 30px; font-weight:900;}
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <p>1. 색상 선택 후 변경 버튼을 클릭하면 색상이 변경되도록 만들어 보시오</p>
+    <div class="color" id="color1" style="background-color: black;"></div>
+    <input type="color" id="color1_1">
+    <button onclick="colorPick();" id="color1_2">변경</button>
+
+    <script>
+        function colorPick(){
+            // var color2 = document.getElementById("");
+            var color1_1 = document.getElementById("color1_1");
+            // console.log(input1);
+            // console.dir(input1);
+            // console.log(input1.value);
+            var div = document.getElementById("color1");
+            div.style.backgroundColor =color1_1.value;
+            
+        }
+
+
+
+    </script>
+
+    <p>2.버튼에 따라 크기 조절이 가능하게 만들기</p>
+    <div id="size1" class="size"  style="background-color: black;"></div>
+
+    <button onclick="smaller();" id="small">50X50</button>
+    <button onclick="samesame();" id="same">원본(100X100)</button>
+    <button onclick="bigger();" id="big">200X200</button>
+
+<script>
+    function smaller() {
+     var size1 = document.getElementById("size1");
+     size1.style.width = "50px";
+     size1.style.height = "50px";
+
+    //  function samesame() {
+    //     var size1 = document.getElementById("size1");
+    //     size1.style.width = "100px";
+    //     size1.style.height = "100px"; }
+    }
+</script>
+
+<script>
+     function samesame() {
+        var size1 = document.getElementById("size1");
+        size1.style.width = "100px";
+        size1.style.height = "100px";
+     }
+</script>
+
+<script>
+    function bigger() {
+       var size1 = document.getElementById("size1");
+       size1.style.width = "200px";
+       size1.style.height = "200px";
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+</body>
+</html>

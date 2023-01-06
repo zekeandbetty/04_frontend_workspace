@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<button onclick="createTable();">테이블 생성</button>
+<div id="table_div"></div>
+
+<script>
+function createTable(){
+    var row  = prompt();
+    var col = prompt();
+
+    <table>
+    
+    </table>
+
+    console.log(row);
+    console.log(col);
+    var a = "<table border='1'>";
+    console.log(a);
+    for(var i=0; i<row; i++) {
+        a += "<tr>"
+            for(var j=0; j<col; j++){
+                a += "<td></td>";
+            }
+            a+= "</tr>"
+    }
+
+    a+= "</table>";
+    console.log("최종적인 a : " + a);
+
+    var divEl = document.getElementById("table_div");
+
+
+    
+    
+
+
+
+
+}
+</script>
+<br>
+
+    <h1>행 열을 각각 입력 받아서 새화면에서 출력하기</h1>
+    <button onclick="createTable_new();">테이블 새 화면 생성</button>
+
+    <script>
+        function createTable_new(){
+            var row  = prompt("몇행을 추가하시겠습니까?");
+            var col = prompt();
+        
+            <table>
+            
+            </table>
+        
+            console.log(row);
+            console.log(col);
+
+            var count = 1;
+            var a = "<table border='1'>";
+            console.log(a);
+            for(var i=0; i<row; i++) {
+                a += "<tr>"
+                    for(var j=0; j<col; j++){
+                        a += "<td height = '50px width = '30px'>" + count +"</td>";
+                    }
+                    a+= "</tr>"
+            }
+        
+            a+= "</table>";
+
+            document.write();
+            console.log("최종적인 a : " + a);
+        
+            var divEl = document.getElementById("table_div");
+        
+        
+            
+            
+        
+        
+        
+        
+        }
+        </script>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+</body>
+</html>

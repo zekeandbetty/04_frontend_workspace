@@ -106,21 +106,143 @@
 </p>
 
 <button onclick="testConfirm();">클릭</button>
+<div id="area2"></div>
 
 <script>
     function testConfirm(){
         var result = confirm("졸리면 확인, 아니면 취소를 누르세요.");
         // console.log(result);
 
+        var divEl = document.getElementById("area2");
+
         if(result) {
-            console.log("정신들 차리세요.");
+            // console.log("정신들 차리세요.");
+            divEl.innerHTML = "<h3>정신들 차리세요.</h3>"
         }else{
-            console.log("굳");
+            // console.log("굳");
+            divEl.innerHTML = "<h3>굳</h3>"
         }
     }
 </script>
 
+<br>
 
-    
+<h3>[window.]prompt("질문내용");</h3>
+<p>
+    prompt 호출시 "질문내용"과 입력할 수 있는 "텍스트 상자"와 "확인/취소"  버튼이 보여지는 알람창 발생 <br>
+    확인 버튼 클릭 시 텍스트 상자에 입력되어 있는 값이 문자열로 반환(아무리 숫자가 써있어도 문자열),
+    취소버튼 클릭시 null을 반환(글자입력을 했어도 취소를 누르면 무조건 null)
+</p>
+
+<button onclick="testPrompt1();">클릭</button>
+<div id="area3"></div>
+
+<script>
+    function testPrompt1() {
+        var name = prompt("당신의 이름은 무엇입니까?");
+        var age = prompt("당신의 나이는 몇살입니까?");
+
+        // console.log(name);
+        // console.log(age);
+        // console.log(7);   //콘솔에 숫자가 입력되면 파란색으로 보임
+
+        var divEl =  document.getElementById("area3");
+        divEl.innerHTML = "<b>앗, 당신이 바로" + age + "살" + name + " 님이군요..반가워요 </b>";
+    }
+</script>
+
+<br>
+
+<button onclick="testPrompt2();">숫자입력</button>
+<ul id="area4">
+
+</ul>
+
+<script>
+    function testPrompt2() {
+        //num 개수만큼 반복문 돌려서 li 만들어줄것임
+
+        /* 자바
+        for(int i=1; i<=num; i++) {
+            //num횟수만큼 반복됨
+        }
+        */
+
+        var num = prompt("숫자만을 입력하세요.");
+
+        var str = "";
+        for(var i=1; i<=num; i++){
+            str += "<li>목록" + i + "</li>";
+        }
+
+        // console.log(str);
+        // var ulEl = document.getElementById("area4");
+        // ulEl.innerHTML = str;
+
+        // var ulEl = document.getElementById("area4");
+        // ulEl.innerHTML = str;
+        document.getElementById("area4").innerHTML = str; /*위 두줄과 이 한줄 같음(줄이기 가능)*/
+
+        
+
+
+
+
+    }
+</script>
+
+<br>
+
+        <h3> 4) 선택한 input요소.value</h3>
+        아이디: <input type = "text" id = "userId"> <br>
+        비밀번호 : <input type = "password" id = "userPwd"> <br>
+        <button onclick="testInput();">클릭</button>
+
+        <script>
+            function testInput() {
+                var input1 = document.getElementById("userId");
+                var input2 = document.getElementById("userPwd");
+
+
+                console.dir(input1);
+
+                console.log(input1.value);
+                // console.log(input2.value);
+
+                var id = input1.value;
+                var pwd = input2.value;
+
+                document.getElementById("area5").value = id + "," + pwd;
+
+                //클릭버튼을 누르면 각각의 인풋창이 초기화됐으면 좋겠다.
+                input1.value= "";
+                input2.value= "";
+
+            }
+        </script>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br> <br><br><br><br><br><br> <br><br><br><br><br><br>  
 </body>
 </html>
