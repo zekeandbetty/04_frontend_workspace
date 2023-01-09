@@ -170,12 +170,39 @@
                 }
             </script>
 
+            <h3>5) 내가 원하는 요소 자유자재로 가져오기(선택자를 활용)</h3>
 
+            <div id="test1">테스트  입니다.</div>
+            <div class="test">
+                <h2>안녕</h2>
+                <h2>잘가</h2>
+            </div>
+            <span>ㅋㅋㅋ</span>
+            <h2>빠이</h2>
 
+            <br>
 
+            <button onclick="accessSelector();">클릭</button>
 
+            <script>
+                function accessSelector() {
+                    //선택자를 이용해서 요소를 가져오고자 할 때
+                    //document.querySelector("선택자"); => 선택된 요소 객체 하나만 반환
+                    //document.querySelectorALL("선택자"); =>선택된 요소 객체들을 배열에 담아서 반환
 
+                     var divEl = document.querySelector("#test1"); //div 요소 객체
+                     var h2El = document.querySelectorAll(".test>h2"); //[h2 요소객체, h2 요소객체,..]
+                     var spanEl = document.querySelector(".test+span "); //span 요소 객체
 
+                     console.log(divEl.innerHTML);
+
+                     for(var i = 0; i<h2El.length; i++) {  //위가 배열이라 for문
+                        console.log(h2El[i].innerHTML);
+                     }
+
+                     console.log(spanEl.innerHTML);
+                }
+            </script>
 
 
 
