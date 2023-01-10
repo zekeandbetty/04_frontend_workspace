@@ -7,15 +7,28 @@
     <title>Document</title>
     <style>
     fieldset {
-        width: 700px;
-        height: 500px;
+        width: 800px;
+        height: 300px;
+        margin: 0px 0px 10px 10px;
     }
 
-    #titles{width: 300px; margin: 0px 0px 5px 0px ; float: left; display: inline block;}
-    #contents{width: 300px; height: 150px;}
-    
+    #titles{width: 300px; margin: 0px 0px 10px 10px ;  display: inline block;}
+    #contents{width: 300px; height: 150px; margin: 5px;}
 
-    /* input{float: left;} */
+    button{background-color: lightgray;}
+    table{width: 830px; font-size: small; margin: 0px 0px 10px 10px ;}
+    .tbtn{float: right; border-radius: 10%; }
+    button{border-color: rgb(148, 131, 131);}
+    .gjtitle{width: 536px; height: 27px;}
+    th{background-color: lightsalmon; color: white;  font-size: 13px;}
+    #tr1{height: 40px;}
+    .middle{background-color: rgb(236, 236, 217);}
+    #submitId{margin: 0px 0px 0px 120px;}
+    #titles{margin: 0px 0px 5px 33px;}
+    #contents{margin: 0px 0px 10px 33px;}
+   
+   
+    
 
 
 
@@ -34,57 +47,79 @@
 
 <form action="insert.no" method="post">
 <fieldset><legend>공지사항 작성하기</legend>
-<p>제목</p> 
-<input type="text" name="title" id="titles" placeholder="제목을 입력하시오."> <br>
-<label for=""></label>
 
-<p>내용</p>
-<input type="text" name="content" id="contents" placeholder="내용을 입력하시오."> <br>
-<label for=""></label>
-
-<p>첨부파일</p>
-<input type="file" name="uploadfile"> <br><br>
-
-<input type="submit" value="작성하기"> <br><br>
+제목 <input type="text" name="title" id="titles" placeholder="제목을 입력하시오."> <br>
 
 
 
+ 내용 <input type="text" name="content" id="contents" placeholder="내용을 입력하시오."> <br>
 
 
+첨부파일 <input type="file" name="uploadfile"> <br><br>
+
+<input type="submit" value="작성하기" id="submitId"> <br><br><br><br>
 
 
+</fieldset> <br> <hr> <br>
 
 
+<table border="1" id="table1">
+
+<tr id="tr1">
+    <th>번호</th>
+    <th colspan="2">제목</th>
+    <th>작성자</th>
+    <th>작성일</th>
+    <th>조회수</th>
+</tr>
+<tr class="middle">
+    <td>9</td>
+    <td class="gjtitle">공지사항 제목9</td>
+    <td><button class="tbtn">바로가기</button></td>
+    <td>user01</td>
+    <td>2021-03-29</td>
+    <td>34</td>
+</tr>
+<tr class="middle">
+    <td>6</td>
+    <td class="gjtitle">공지사항 제목6</td>
+    <td><button class="tbtn">바로가기</button></td>
+    <td>answ445</td>
+    <td>2021-03-12</td>
+    <td>67</td>
+</tr>
+    <tr class="middle">
+    <td>3</td>
+    <td class="gjtitle">공지사항 제목3</td>
+    <td><button class="tbtn">바로가기</button></td>
+    <td>testg12</td>
+    <td>2021-03-01</td>
+    <td>98</td>
+</tr>
+<tr class="middle">
+    <td>2</td>
+    <td class="gjtitle">공지사항 제목2</td>
+    <td><button class="tbtn">바로가기</button></td>
+    <td>palwe3</td>
+    <td>2021-01-02</td>
+    <td>85</td>
+</tr>
+<tr class="middle">
+    <td>1</td>
+    <td class="gjtitle">공지사항 제목1</td>
+    <td><button class="tbtn">바로가기</button></td>
+    <td>xml23</td>
+    <td>2020-12-24</td>
+    <td>124</td>
+</tr>
+<tr>
+    <th colspan="4">전체공지사항 갯수</th>
+    <th colspan="2">5개</th>
+   
+</tr>
 
 
+</table>
 </form>
-
-
-
-
-
-
-
-
-</fieldset>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
 </body>
 </html>

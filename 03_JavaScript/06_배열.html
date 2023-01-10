@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.area{border: 1px solid red;}
+.small{height: 100px;} 
+.big{height: 200px;}       
+                            
+
+
+    </style>
+</head>
+<body>
+    <h1>배열</h1>
+    <p>
+        변수 선언시 별도의 자료형 지정이 없기 떄문에 <br>
+        어떤 자료형의 값들이든 다 하나의 배열 공간에 담을 수 있음, 크기의 제약도 없다.(자바에서의 컬렉션과 유사)
+    </p>
+
+    <button onclick="arrayTest1();">확인하기</button>
+    <div id="area1" class="area small"></div>
+
+    <script>
+        function arrayTest1() {
+            const arr = ["문동은", '서울', 20, true, [1,2,3]]; //배열객체 (type == object) 2차원배열(배열 안 배열)
+
+            console.log(arr);
+            console.log(arr[2]);
+            console.log(arr[4]);
+            console.log(arr[4][2]);
+
+            const area1 = document.getElementById("area1");
+
+            /*
+            for(let i = 0; i<arr.length; i++) {  //i는 절대 const로 하면 안됨(값이 0에서 고정됨)
+                area1.innerHTML += arr[i] + "<br>";
+            }
+            */
+
+            //배열의 0번 인덱스부터 마지막 인덱스까지
+            //순차적으로 모든 요소에 접근할 목적이라고 한다면
+            //for in문 활용 가능
+
+            // for(let 변수 in 순차적으로 접근할 배열) {
+
+            // }
+
+            for(let i in arr ) {  // i =0 => i =1 => ...
+                area1.innerHTML += arr[i] + "<br>";
+            }
+
+        } 
+    </script>
+
+    <hr>
+
+    <h3>* 배열의 선언</h3>
+    <button onclick="arrayTest2();">확인하기</button>
+
+    <script>
+        function arrayTest2(){
+            // 배열 선언하는 3가지 방법
+            const arr1 = new Array(); //빈 배열 하나 생성됨
+            const arr2 = new Array(3); //크기가 3인 빈 배열 하나 생성됨
+            const arr3 = [];
+
+            // console.log(arr1);
+            // console.log(arr2);
+            // console.log(arr3);
+
+            
+            //배열에 값 대입
+            arr1[0] = "바나나";
+            arr1[1] = "사과";
+            arr1[9] = "키위";
+
+            console.log(arr1);
+
+            arr2[0] = "자동차";
+            arr2[1] = "기차";
+            arr2[2] = "오토바이";
+            arr2[3] = "제트기";  //크기지정했어도 그 크기보다 더 넣어도 알아서 더 커짐
+
+            console.log(arr2);
+            console.log(arr2[0]);
+
+            //배열 선언과 동시에 초기화
+            const arr4 = new Array("문동은", "이사라", "박연진");
+            const arr5 = ["java", "oracle", "front"];
+
+            console.log(arr4);
+            console.log(arr5);
+        }
+    </script> <br>
+    <hr>
+
+    <h3>* 배열관련 메소드</h3>
+
+    <h4>1) indexOf(찾고자 하는 요소) : 배열에서 해당 요소가 위치해있는 인덱스 반환</h4>
+
+    <div id="area2" class="area small"></div>
+    <button onclick="indexOfTest();">확인하기</button>
+
+    <script>
+        function indexOfTest() {
+            const area2 = document.getElementById("area2");
+
+            const arr = ["사과", "딸기", "바나나", "복숭아", "파인애플"];
+            const fruit = prompt("찾고자 하는 과일명 입력");
+
+            const index = arr.indexOf(fruit); //해당 요소를 찾지 못하면 -1을 반환
+
+            console.log(index);
+
+            //당신이 찾는 과일 xxx(은)는 x번쨰 인덱스에 있습니다.
+            //당신이 찾는 과일 xxx(은)는 판매하지 않습니다.
+
+            area2.innerHTML = "당신이 찾는 과일 " + fruit + "은(는)"
+            if(index == -1) {
+                area2.innerHTML += " 판매하지 않습니다.";
+            }else {
+                area2.innerHTML += index + "번째 인덱스에 있습니다."
+            }
+
+            // 자바스크립트에서 두 값이 동일한지 비교하는 연산자
+            console.log(1==1); //true
+            console.log(1 =="1"); //true => 동등연산자(자료형과 무관하게 실제값만 일치해도 true)
+            console.log(1 === "1"); //false === -> 일치연산자(값, 자료형 둘 다 일치해야 true)
+        }
+    </script>
+
+    <hr>
+
+    <h4>2) 배열.concat(배열, 배열) : 배열에다가 여러개의 배열을 결합하고자 할 때 사용</h4>
+
+    <div id="area3" class="area big"></div>
+    <button onclick="concatTest();">확인하기</button>
+
+    <script>
+        function concatTest() {
+            const area3 = document.getElementById("area3");
+
+            const arr1 = ["사과", "딸기"];
+            const arr2 = ["자동차", "비행기", "오토바이"];
+
+            area3.innerHTML += "arr1 : " + arr1 + "<br>";
+            area3.innerHTML += "arr2 : " + arr2 + "<br>";
+
+            area3.innerHTML += "arr1 기준으로 배열 합침 : " + arr1.concat(arr2) + "<br>";  
+            area3.innerHTML += "다시 arr1 : " + arr1 + "<br>";
+            //concat : 원본배열에 영향을 전혀 끼치지 않음
+            //concat : 두개의 배열을 합쳐서 새로운 배열로 반환
+
+            area3.innerHTML += "arr2 기준으로 배열 합침 : " + arr2.concat(arr1, [1,2,3]) + "<br>";
+
+        }
+    </script> <br><br>
+    <hr>
+
+    <h4>3) 배열.reverse() : 배열에 담긴 값들을 역순으로 바꿔주는 메소드</h4>
+    <div id="area4" class="area small"></div>
+    <button onclick="revereseTest();">확인하기</button>
+
+    <script>
+        function revereseTest() {
+            const area4 = document.getElementById("area4");
+
+            const arr = [1,2,3,4,5];
+
+            area4.innerHTML += "arr : " + arr + "<br>";
+            area4.innerHTML += "Reverse 결과 : " + arr.reverse() + "<br>";
+            area4.innerHTML += "다시 arr : " + arr + "<br>";
+            //reverse : 원본배열에 영향을 끼치는 메소드
+        }
+    </script>
+
+    <hr>
+
+    <h4>4) 배열.sort() : 배열안에 담긴 값들을 오름차순으로 정렬시켜주는 메소드</h4>
+
+    <div id="area5" class="area small"></div>
+    <button onclick = "sortTest();">확인하기</button>
+
+    <script>
+        function sortTest() {
+            const area5 = document.getElementById("area5");
+
+            const arr = ["임철현", "나철현", "강철현", "박철현", "주철현"];
+
+            area5.innerHTML += "arr : " + arr + "<br>";
+            area5.innerHTML += "sort 결과 : " + arr.sort() + "<br>";
+            area5.innerHTML += "다시 arr : " + arr + "<br>";
+            // 원본 배열에 영향을 끼치는 메소드
+
+            //내림차순 정렬하고 싶다면 ? => 오름차순 정렬 후 역순으로 뒤집기
+            area5.innerHTML += "내림차순 정렬 : " + arr.sort().reverse();
+        }
+    </script><br><br>
+
+    <hr>
+
+    <h4>
+        5_1) 배열.push(추가할 요소) : 배열의 맨 뒤에 요소 추가시키고 배열의 크기 반환 <br>
+        5_2) 배열.pop() : 배열의 맨 뒤 요소 제거시키고 제거된 요소 반환
+    </h4>
+
+    <div id="area6" class="area big"></div>
+    <button onclick="pushPopTest();">확인하기</button>
+
+    <script>
+        function pushPopTest() {
+            const area6 = document.querySelector("#area6");
+
+            const arr = ["서초동", "방배동", "역삼동", "삼성동", "대치동"];
+
+            area6.innerHTML += "arr : " + arr + "<br>";
+            area6.innerHTML += "arr에 push 후 배열의 크기 : " + arr.push("신도림동") + "<br>";
+            area6.innerHTML += "다시 arr : " + arr + "<br>"; 
+            //push -> 원본배열에 영향을 끼치는 메소드
+            arr.push("잠실본동");
+            area6.innerHTML += "arr에 psuh 후  : " + arr + "<br>";
+
+
+            area6.innerHTML += "arr에 pop 후 : " + arr.pop() + "<br>";
+            area6.innerHTML += "다시 arr : " + arr + "<br>";
+
+            arr.pop();
+            arr.pop();
+            arr.pop();
+            area6.innerHTML += "최종 arr : " + arr + "<br>";
+        }
+
+
+    </script><br>
+    <hr>
+
+
+
+
+
+    <h4>
+        6_1 배열.unshift(추가할 요소) : 배열의 맨 앞에 요소 추가 후 배열의 크기 반환 <br>
+        6_2 배열.shift() : 배열의 맨 앞에 요소 제거 시키고 제거된 요소 반환
+    
+    </h4>
+
+    <div id="area7" class="area big"></div>
+    <button onclick="shiftUnshiftTest();">확인하기</button>
+
+    <script>
+        function shiftUnshiftTest() {
+            const area7 = document.querySelector("#area7");
+
+            const arr = ["당구", "야구", "볼링", "테니스"];
+            area7.innerHTML += "arr : " + arr + "<br>";
+
+            arr.unshift("농구");
+            area7.innerHTML += "arr에 unshift 후  : " + arr + "<br>";
+            area7.innerHTML += "arr에 unshift 후 배열의 크기 : " + arr.unshift("탁구") + "<br>";
+
+            area7.innerHTML += "arr에 shift 후 : " + arr.shift() + "<br>";
+            area7.innerHTML += "최종 arr : " + arr + "<br>";
+
+        }
+
+    </script> <br><br> <hr>
+
+
+
+
+
+
+<h4>
+    7_1) 배열.slice(시작인덱스, 끝인덱스) : 배열로부터 시작인덱스에서 끝 인덱스까지 단지 추출해주는 메소드
+    7_2) 배열.splice(시작인덱스, 제거개수[, 추가할 값])
+</h4>
+
+<div id="area8" class="area small"></div>
+<button onclick="sliceSpliceTest();">확인하기</button>
+
+<script>
+    function sliceSpliceTest() {
+        const area8 = document.querySelector("#area8");
+
+        const arr = ["Java", "Oracle", "HTML", "CSS", "JavaScript"];
+        area8.innerHTML += "arr : " + arr + "<br>";
+
+        //slice(시작, 끝)
+        area8.innerHTML += "slice 결과 : " + arr.slice(2,4) + "<br>";
+        area8.innerHTML += "다시 arr : " + arr + "<br>";
+        // 원본배열에 영향을 끼치는 메소드 아님
+
+        //splice(시작, 제거개수[, 추가할요소])
+        area8.innerHTML += "splice 결과 : " + arr.splice(2,2, "Spring") + "<br>";
+        area8.innerHTML += "다시 arr : " + arr + "<br>";
+        //원본배열에 영향을 끼치는 메소드임
+
+
+    }
+</script><br><br><hr>
+
+<h4>
+    8) 배열.toString() / 배열.join([구분자]) : 배열에 각 인덱스에 담긴 값들을 하나의 "문자열"로 합쳐서 반환
+</h4>
+
+
+<div id="area9" class="area small"></div>
+<button onclick="toStringJoinTest();">확인하기</button>
+
+<script>
+    function toStringJoinTest() {
+        const area9 = document.querySelector("#area9");
+
+        const arr = ["나는", "어제", "더 글로리를", "봤다!", "존잼"];
+        area9.innerHTML += "arr : " + arr/*.toString*/ + "<br>";
+        area9.innerHTML += "toString : " + arr.toString() + "<br>";
+        //객체를 화면에 출력하면 내부적으로 객체.toString() 호출한 결과가 출력
+
+        area9.innerHTML += "join : " + arr.join() + "<br>";
+        //join은 기본적으로는 ,로 연이어줌 / 직접 구분자를 제시가능
+        area9.innerHTML += "구분자 제시한 join : " + arr.join(" ") + "<Br>";
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
+</body>
+</html>

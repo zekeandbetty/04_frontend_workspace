@@ -1,0 +1,39 @@
+220110
+
+1. css 파일 => 외부스타일 연결방법(html과 외부 css파일간의)
+2. html에서 head body의 역할?
+3. h 태그 어떤 종류가 있는지
+4. html의 기본 구조
+doctype html head body
+<!DOCTYPE html>
+<html>
+    <head></head>
+    body...
+
+5. 각종 태그들..br, p, pre, a, img(src alt), ul, ol(로마자, 소문자, 3부터 시작)
+(사진보고 만들 줄 알아야 함)    
+6. 블럭속성, 인라인 속성 차이
+7. 표태그(테이블), 병합(colspan, rowspan)
+8. 아이디와 클래스의 차이점(아이디는 딱 하나, 클래스는 여러개 가지는것 가능)
+9. input type = ? text, password, email, button, file, date...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
