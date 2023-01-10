@@ -1,20 +1,37 @@
 220110
 
 1. css 파일 => 외부스타일 연결방법(html과 외부 css파일간의)
+Inline Style Sheet=> HTML 태그의 style 속성에 CSS 코드를 넣어 적용시키는 방법
+Internal Style Sheet=> HTML 문서 안에 스타일 코드를 넣는 방법(<style>과 </style> 안에)
+Linking Style Sheet=> 별도의 CSS 파일을 만들고 HTML 문서와 연결하는 방법
+<link rel="stylesheet" href="style.css"> (style은 css파일 파일명, css는 확장자명)
+
 2. html에서 head body의 역할?
+
 3. h 태그 어떤 종류가 있는지
+섹션, 문단의 제목을 나타내며 숫자가 작을수록 글자의 크기가 커집니다. h1~h6
 4. html의 기본 구조
-doctype html head body
-<!DOCTYPE html>
-<html>
-    <head></head>
-    body...
+
+<!DOCTYPE html> html문서 형식을 선언 : html5 형식이라는걸 알려주기 위한 태그
+<html> html 문서의 시작과 끝을 표시해주는 태그
+    <head></head>해당 이 문서의 각종 정보와 제목,스타일 시트 내용들 작성 
+    <body></body>화면상에 출력해서 보여주고자 하는 모든 정보/내용들을 작성하는 부분
+</html>
 
 5. 각종 태그들..br, p, pre, a, img(src alt), ul, ol(로마자, 소문자, 3부터 시작)
+img-> <img src="이미지 주소" alt="대체 문자열">
+<ol>과 <ul>은 모두 목록을 나타냅니다. <ol start="4">  <ol type="i">
+<ol type="a" start="3">
+
+
 (사진보고 만들 줄 알아야 함)    
 6. 블럭속성, 인라인 속성 차이
+
 7. 표태그(테이블), 병합(colspan, rowspan)
+colspan-> 가로병합 rowspan-> 세로병합
+
 8. 아이디와 클래스의 차이점(아이디는 딱 하나, 클래스는 여러개 가지는것 가능)
+
 9. input type = ? text, password, email, button, file, date...
 
 
