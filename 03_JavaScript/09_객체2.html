@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .area{border: 1px solid black;
+        background-color: lightblue;
+        height: 250px;
+    }
+
+    </style>
+</head>
+<body>
+    <h3>* 객체 배열을 사용한 다량의 데이터 관리</h3>
+
+    <button onclick="test1();">실행확인</button>
+    <div id="area1" class="area"></div>
+
+    <script>
+        function test1() {
+            const student0 = {name:"문동은", java:100,oralce:90,html:90,css:60};
+            const student1 = {name:"박연진", java:60,oralce:100,html:80,css:70};
+            const student2 = {name:"이사라", java:70,oralce:80,html:100,css:50};
+            const student3 = {name:"전재준", java:100,oralce:60,html:80,css:50};
+
+            const students = [];  //빈 배열
+
+            students.push(student0);
+            students.push(student1);
+            students.push(student2);
+            students.push(student3);
+
+            console.log(students);
+            console.log(students[0]);
+            console.log(students[1].name);
+
+            //객체.속성 = 새로운값;
+            for(let i in students) {
+                students[i].javascript = 100;
+                students[i].getSum = function(){
+                    return this.java + this.oralce + this.html + this.css + this.javascript;
+                };
+                students[i].getAvg = function() {
+                    return this.getSum() / 5;
+                }
+            }
+
+            const area1 = document.getElementById("area1");
+
+            for(let i in students){
+                area1.innerHTML += "이름 : " + students[i].name
+                                + ",총점 : " + students[i].getSum()
+                                + ",평균 : " + students[i].getAvg() + "<br>";
+            }
+        }
+
+
+
+
+
+
+
+
+    </script> <br> <hr>
+
+    <h3>* 생성자 함수</h3>
+    <p>new 키워드를 통해 객체를 생성할 수 있는 함수를 의미(함수명 제시 시 첫글자를 대문자)</p>
+    <button onclick="test2();">실행확인</button>
+    <div id="area2" class="area"></div>
+
+    <script>
+
+        function test2(){
+            const student0 = new Student("문동은", 100,70,60,80,90);
+            const student1 = new Student("박연진", 80,50,30,80,90);
+            const area2 = document.getElementById("area2");
+
+            // console.log(student0);
+
+            const students = [student0, student1];
+            console.log(students);
+
+            for(let i in students){
+                area2.innerHTML += "이름 : " + students[i].name
+                                + ",총점 : " + students[i].getSum()
+                                + ",평균 : " + students[i].getAvg()  + "<br>";
+            }
+        }
+
+
+
+        function Student(name,java,oracle, html, css, javascript) { //자바에서 매개변수 생성자 만든것과 비슷
+            // 일반속성
+            this.name = name;
+            this.java = java;
+            this.oracle = oracle;
+            this.html = html;
+            this.css = css;
+            this.javascript = javascript;
+
+            //메소드 속성
+            this.getSum = function() {
+                return this.java + this.oracle + this.html + this.css  +this.javascript;
+            }
+            this.getAvg = function() {
+                return this.getSum() / 5;
+            }
+
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

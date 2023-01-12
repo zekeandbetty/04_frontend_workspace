@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       #output,#area1{border: 1px solid black; width: 500px; height: 15px;}
+    
+    </style>
+</head>
+<body>
+    <h1>배열 실습 문제1</h1>
+    <fieldset><legend>보기</legend>
+    <label for="" id="la1">사과,바나나,당근</label><br>
+    <label for="" id="la2">김밥,치즈,떡볶이,햄버거</label><br>
+    <label for="" id="la3">환타,사이다,콜라</label><br>
+    <label for="" id="la4">고양이,강아지</label><br>
+    </fieldset>
+    <input type="text" placeholder="찾을 문자열을 입력하세요" id="input1"> <br>
+   <button onclick="test1();">전송 및 처리</button>
+
+    <script>
+        function test1() {
+            const input1 = document.getElementById('input1').value;
+            const arr1 = new Array("사과","바나나","당근" );
+            const arr2 = new Array("김밥","치즈","떡볶이","햄버거");
+            const arr3= new Array("환타","사이다","콜라");
+            const arr4 =new Array("고양이","강아지");
+
+            const arr5 = arr1.concat(arr2,arr3,arr4);
+            console.log(arr5);
+            console.log(arr5[5]);
+
+            for(let i in arr5){
+            if(input1==arr5[i]) {
+            alert(input1 + '는 배열 index'+ i + '번째에 존재합니다.'); 
+            }else {
+                alert('존재하지 않습니다.');
+            } break;
+           }
+        }
+    </script>
+
+
+
+    <h1>배열실습문제2</h1>
+    <fieldset><legend>보기</legend>
+        <label for="" id="stringla1">r b</label> <br>
+        <label for="" id="stringla2">e v o l</label> <br>
+    </fieldset> <br>
+
+
+    <div id="output"></div> <br>
+    <button onclick="test2();">처리</button>
+
+    <script>
+        function test2() {
+            const output = document.getElementById("output");
+
+            const arr1 = ["r b"];
+            const arr2 = ["e v o l"];
+            console.log(arr1);
+
+            const word1 = arr1[0].split(' ');
+            console.log(word1);
+            const word2 = arr2[0].split(' ');
+            console.log(word2); 
+
+            const word1_1 = word1.reverse();
+            console.log(word1_1);
+            const word2_1 = word2.reverse();
+
+            output.innerHTML += word1_1.join("");
+            output.innerHTML += word2_1.join("");
+}
+    </script>
+
+
+<h1>배열실습문제3</h1>
+<fieldset><legend>입력</legend>
+    <input type="text" id="input">
+    <button  onclick="input11();" id="inputbtn">입력</button>
+</fieldset>
+<br>
+
+<div id="area1"></div> <br>
+<button onclick="output();">출력</button>
+
+<script>
+    function input11() {
+        const area1 = document.getElementById("area1");
+        const input = document.getElementById("input");
+
+        // const arr = [];
+
+        let arr = [document.getElementById('input').value];
+        console.log(arr);
+
+        arr.push( input11.value );
+        console.log(arr);
+
+
+
+
+
+
+
+        function output() {
+
+
+
+
+
+        }
+
+    }
+</script>
+
+
+   
+
+
+    
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
