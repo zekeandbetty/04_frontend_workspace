@@ -7,7 +7,7 @@
     , initial-scale=1.0">
     <title>Document</title>
     <style>
-       #output,#area1{border: 1px solid black; width: 500px; height: 15px;}
+       #output,#area1, #answer, #result{border: 1px solid black; width: 500px; height: 20px;}
     
     </style>
 </head>
@@ -24,24 +24,47 @@
 
     <script>
         function test1() {
-            const input1 = document.getElementById('input1').value;
-            const arr1 = new Array("사과","바나나","당근" );
-            const arr2 = new Array("김밥","치즈","떡볶이","햄버거");
-            const arr3= new Array("환타","사이다","콜라");
-            const arr4 =new Array("고양이","강아지");
+        //     const input1 = document.getElementById('input1').value;
+        //     const arr1 = new Array("사과","바나나","당근" );
+        //     const arr2 = new Array("김밥","치즈","떡볶이","햄버거");
+        //     const arr3= new Array("환타","사이다","콜라");
+        //     const arr4 =new Array("고양이","강아지");
 
-            const arr5 = arr1.concat(arr2,arr3,arr4);
-            console.log(arr5);
-            console.log(arr5[5]);
+        //     const arr5 = arr1.concat(arr2,arr3,arr4);
+        //     console.log(arr5);
+        //     console.log(arr5[5]);
 
-            for(let i in arr5){
-            if(input1==arr5[i]) {
-            alert(input1 + '는 배열 index'+ i + '번째에 존재합니다.'); 
-            }else {
-                alert('존재하지 않습니다.');
-            } break;
-           }
+        //     for(let i in arr5){
+        //     if(input1==arr5[i]) {
+        //     alert(input1 + '는 배열 index'+ i + '번째에 존재합니다.'); 
+        //     }else {
+        //         alert('존재하지 않습니다.');
+        //     } break;
+        //    }
+
+
+        //아래는 풀이
+        let str = "";  //문자 자료형이 들어올것
+        for(let  i=1; i<=4; i++){
+            str += document.getElementById("la" + i ).innerHTML;
+            str += ",";
         }
+        console.log(str);
+
+        const foods = str.split(",");
+        foods.pop();
+        console.log(foods);
+
+        const input1 = document.getElementById("input1");
+        let index  = foods.indexOf(input1.value); //요소있으면 index값 뱉음, 없으면 -1 뱉음
+
+        if(index == -1){
+            alert("존재하지 않습니다.")
+        }else{
+            alert(input1.value + '는 배열 index'+ index + '번째에 존재합니다.'); 
+        }
+
+         }
     </script>
 
 
@@ -57,67 +80,139 @@
     <button onclick="test2();">처리</button>
 
     <script>
-        function test2() {
-            const output = document.getElementById("output");
+        // function test2() {
+        //     const output = document.getElementById("output");
 
-            const arr1 = ["r b"];
-            const arr2 = ["e v o l"];
+        //     const arr1 = ["r b"];
+        //     const arr2 = ["e v o l"];
+        //     console.log(arr1);
+
+        //     const word1 = arr1[0].split(' ');
+        //     console.log(word1);
+        //     const word2 = arr2[0].split(' ');
+        //     console.log(word2); 
+
+        //     const word1_1 = word1.reverse();
+        //     console.log(word1_1);
+        //     const word2_1 = word2.reverse();
+
+        //     output.innerHTML += word1_1.join("");
+        //     output.innerHTML += word2_1.join("");
+        //     }
+
+        //아래는 풀이
+        function test2(){
+            let str = "";
+            str = document.getElementById("stringla1").innerHTML;
+            console.log(str);
+            let arr1 = str.split(" ");
+            arr1.reverse();
             console.log(arr1);
 
-            const word1 = arr1[0].split(' ');
-            console.log(word1);
-            const word2 = arr2[0].split(' ');
-            console.log(word2); 
+            str = document.getElementById("stringla2").innerHTML;
+            console.log(str);
+            let arr2 = str.split(" ");
+            arr2.reverse();
+            console.log(arr2);
 
-            const word1_1 = word1.reverse();
-            console.log(word1_1);
-            const word2_1 = word2.reverse();
-
-            output.innerHTML += word1_1.join("");
-            output.innerHTML += word2_1.join("");
-}
+            const output = document.getElementById("output");
+            for(let i in arr1){
+                output.innerHTML += arr1[i];
+            }
+            for(let i in arr2){
+                output.innerHTML += arr2[i];
+            }
+        }
     </script>
 
 
 <h1>배열실습문제3</h1>
 <fieldset><legend>입력</legend>
-    <input type="text" id="input">
-    <button  onclick="input11();" id="inputbtn">입력</button>
+    <input type="text" id="input1">
+    <button  onclick="test1();">입력</button>
 </fieldset>
 <br>
 
-<div id="area1"></div> <br>
-<button onclick="output();">출력</button>
+<div id="answer">이 부분에 정답이 출력될 수 있도록 해주세요</div> <br>
+<!-- <button onclick="output();">출력</button> -->
 
 <script>
-    function input11() {
-        const area1 = document.getElementById("area1");
-        const input = document.getElementById("input");
+    let arr = [];  //이걸 밖으로 빼지않으면 입력 클릭시마다 배열이 초기화됨
 
-        // const arr = [];
 
-        let arr = [document.getElementById('input').value];
+    function test1() {
+        // const area1 = document.getElementById("area1");
+        // const input = document.getElementById("input");
+
+        // // const arr = [];
+
+        // let arr = [document.getElementById('input').value];
+        // console.log(arr);
+
+        // arr.push( input11.value );
+        // console.log(arr);
+
+        //아래는 풀이
+        let input1 = document.getElementById("input1").value;
+        let answer = document.getElementById("answer");
+
+        arr.push(input1.value);
+        // input1.value = " ";
         console.log(arr);
 
-        arr.push( input11.value );
-        console.log(arr);
+        answer.innerHTML = arr.toString();
+}
+</script>
 
 
 
 
+<h1>배열 실습 문제 4</h1>
+
+<fieldset>
+    <legend>보기</legend>
+    <label id="food">피자 치킨 당근 햄버거 떡볶이</label>
+</fieldset> <br>
+
+<input type="text" id="delItem" placeholder="삭제할 음식이름을 입력하세요"> 
+<input type="text" id="addItem" placeholder="추가할 음식이름을 입력하세요"> <br><br>
+
+<div id="result">이 부분에 정답이 출력될 수 있도록 하세요</div> <br>
+
+<button onclick="test();">처리 및 출력</button>
 
 
+<script>
+    function test() {
+        // div 요소 선택
+        let divEl = document.getElementById("result");
 
-        function output() {
+        // 음식들을 담을 변수
+        let food = document.getElementById("food").innerHTML.split(" ");
+        console.log(food);
 
+        // 입력받은 값들을 담을 변수
+        let delItem = document.getElementById("delItem").value;
+        let addItem = document.getElementById("addItem").value;
 
+        // 삭제할 음식의 인덱스를 담을 변수
+        let index = food.indexOf(delItem);
+        console.log(index);
 
+        // splice(시작인덱스, 제거개수 [,추가할 요소]) 함수를 통해 삭제를 원하는 값의 인덱스를 찾아 삭제
+        food.splice(index,1);
+        console.log(food);
 
+        // 추가할 음식을 배열의 마지막 요소에 추가 => push()
+        food.push(addItem);
+        console.log(food);
 
-        }
-
+        // 결과값 추출
+        divEl.innerHTML = food;
     }
 </script>
+
+
 
 
    

@@ -110,6 +110,66 @@
             }
 
         }
+    </script> <br>
+
+    <HR></HR>
+
+    <h3>* Date 내장객체</h3>
+    <button onclick="test3();">실행확인</button>
+    <div id="area3" class="area"></div>
+
+    <script>
+        function test3() {
+            const area3 = document.getElementById("area3");
+
+            const date1 = new Date();  //현재 날짜 및 시간
+
+            // 2022년 10월 18일로 세팅
+            const date2 = new Date(2022,10-1,18); //월에서 -1해줘야 정상적으로 나옴
+
+            //시분초까지 세팅
+            const date3 = new Date(2022,10-1,18,15,20,30);
+
+            //밀리세컨초까지
+            // 1s = 1000ms
+            // 5s = 5000ms
+            
+            const date4 = new Date(2022,10-1,18,15,20,30,5000);
+            
+            area3.innerHTML += "Date() : " + date1 + "<br>";
+            area3.innerHTML += "Date(년도,월,일) : " + date2 + "<br>"; 
+            area3.innerHTML += "Date(년도,월,일,시,분,초) : " + date3 + "<br>"; 
+            area3.innerHTML += "Date(년도,월,일,시,분,초,밀리세컨) : " + date4 + "<br>"; 
+
+            area3.innerHTML += "년도 : " + date1.getFullYear() + "<br>";
+            area3.innerHTML += "월 : " + (date1.getMonth()+1) + "<br>";
+            area3.innerHTML += "일 : " + date1.getDate() + "<br>";
+            area3.innerHTML += "요일 : " + date1.getDay() + "<br>";
+            // 시 : getHours()    / 분 : getMinutes()   / 초 : getSecond() 
+
+            // d-day 계산시에 많이 씀
+
+            // 현재날짜부터 종강일(23.05.19)까지 남은 일 수 d-day
+            const end = new Date(2023,5-1,19);  //종강날짜
+            const now = new Date(); //현재날짜
+
+            area3.innerHTML += (end-now);
+            //현재날짜부터 종강날짜까지 몇 밀리세컨초 남았는지 알려줌
+
+            /*
+                1s == 1000ms
+                1m == 60s == 60*1000
+                1h == 60m == 60*60s == 60*60*1000ms
+                1d == 24h == 24*60m == 24*60*60s == 24*60*60*1000ms
+            
+            */
+
+            const dday = (end-now) / (24*60*60*1000);
+            alert("종강까지" +Math.round(dday) + "일 남았습니다!");
+
+
+
+        }
     </script>
 
 
@@ -129,7 +189,5 @@
 
 
 
-
-
-</body>
+</body> <br><br><br><br><br><br><br><br>
 </html>
