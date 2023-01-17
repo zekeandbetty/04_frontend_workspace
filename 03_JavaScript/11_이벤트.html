@@ -189,6 +189,49 @@
         }
         //기본이벤트를 향해서 return false가 안됨. => return을 써줘야함
     </script>
+
+    <form action="test.do" method="get">
+        아이디 : 
+        <input type="text" name="userId" id="userId"> <br>
+        비밀번호 : 
+        <input type="password" name="userPwd" id="userPwd">  <br>
+        비밀번호 확인 : 
+        <input type="password"  id="checkPwd"><br><br>  <!--서버에 넘길것이 아니기 떄문에 name은 필요없음 -->
+
+        <input type="submit" onclick="return validate();">
+        <!--기본이벤트 수행하기 전에 비번, 비번확인 맞는건지 확인 후 전송-->
+
+    </form>
+
+    <script>
+        function validate() {
+            const userPwd  = document.getElementById("userPwd").value;
+            const checkPwd  = document.getElementById("checkPwd").value;
+            const userId = document.getElementById("userId").value;
+
+            //아이디에 대한 유효성 검사
+            //영문자 또는 숫자로만, 5글자이상 12글자 이하가 맞는지
+            //맞지 않을 경우 
+            //알람창 출력 => 제출 불가하게끔 기본 이벤트 막기
+
+            //정규표현식
+            const regExp =  /^[a-zA-Z0-9]{5,12}$/;
+
+            if(!regExp.test(userId)){
+                alert('유효한 아이디의 형식이 아닙니다. 다시 입력해주세요.');
+
+                document.getElementById("userId").select();  //아이디 유효성 안맞으면 아이디에 드래그 자동으로
+                return false;
+            }
+
+            //두 개의 비밀번호가 일치하지 않을 경우
+            //알람창 출력 => 제출 불가하게끔 기본이벤트 막기
+            if(userPwd != checkPwd){
+                alert('비밀번호가 일치하지 않습니다.')
+                return false;
+            }
+        }
+    </script>
     
 
 
