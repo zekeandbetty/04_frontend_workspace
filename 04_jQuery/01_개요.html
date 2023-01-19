@@ -8,10 +8,10 @@
 
 
     <!--  오프라인으로 jquery와 연결(파일을 통해서)  -->
-    <!-- <script src="resources/js/jquery-3.6.3.min.js"></script>-->
+    <script src="resources/js/jquery-3.6.3.min.js"></script>
 
     <!-- 온라인으로 jQuery와 연결 -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> -->
     
 
 
@@ -132,11 +132,12 @@
             // > 순수 자바스크립트 방식
             
             const h3Arr = document.getElementsByTagName("h3");  //[h3요소객체, h3요소객체, h3요소객체...]
-            // h3Arr.style.backgroundColor = "yellow";  일일이 h3Arr[]로 선언해줘야함
+            //h3Arr.style.backgroundColor = "yellow";  //일일이 h3Arr[]로 선언해줘야함
 
-            // for(let i in h3Arr){
-            // h3Arr[i].style.backgroundColor = "yellow";  
-            // }  기존에 했던 방식
+            for(let i = 0; i<h3Arr.length; i++){
+                console.log(i);
+            h3Arr[i].style.backgroundColor = "yellow";  
+            }  //기존에 했던 방식
 
             // > jQuery 방식
             $("h3").css("backgroundColor", "yellow");
@@ -145,7 +146,7 @@
 
             $("#test").css("color", "pink");
             
-        })
+        });
 
 
     </script>

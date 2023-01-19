@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="resources/js/jquery-3.6.3.min.js"></script>
+
+    <style>
+        .test{
+            background-color: purple;
+        }
+    </style>
+    
+</head>
+<body>
+<h3>* 자손선택자(>)와 후손선택자( )</h3>
+
+<div style="border: 1px solid black; ">
+    <ul>자손1
+        <li>div의 후손이면서 ul의 자손1</li>
+        <li>div의 후손이면서 ul의 자손2</li>
+        <li class="ch">div의 후손이면서 ul의 자손3</li>
+        <li class="ch">div의 후손이면서 ul의 자손4</li>
+        <li>
+            <h3>div/ul의 후손이면서 li의 자손</h3>
+        </li>
+    </ul>
+    <h3>자손2</h3>
+    <h3 class="ch">자손3</h3>
+</div>
+
+
+
+<script>
+    $(function(){
+        // 아래의 h3 요소선택
+        $("div>h3.ch").css("color","lightblue");
+
+        $("div h3").css("backgroundColor", "violet");
+
+        // $("li>h3")
+        // $("ul h3")
+        $("ul>li>h3").css("color","red");
+
+        // li중에 클래스 ch인거 선택
+        // $("li.ch")
+
+
+        //1) 따로따로 css메소드 호출
+       // $("li.ch").css("backgroundColor","yellow");  //li.ch대신 .ch만 써도 됨
+       // $("li.ch").css("color", "pink");
+
+        //2)연이어서 css호출
+       //$("ul>.ch").css("backgroundColor", "yellow" ).css("color", "pink");
+
+       //3)css 메소드 한번만 호출 => 객체{속성명 : 속성값,...}
+       $("ul>.ch").css({backgroundColor:"yellow", color:"pink"});
+
+
+    })
+</script>
+
+<hr>
+
+<h3>* 속성선택자</h3>
+<p>
+    선택자[속성] : 특정 속성을 가지고 있는 모든 요소 선택 <br>
+    선택자[속성=특정값] : 속성값이 특정값과 "일치"하는 모든 요소 선택 <br>
+    선택자[속성~=특정값] : 속성값에 특정값을 "단어로써 포함"하는 모든 요소 선택 <br>
+    선택자[속성^=특정값] : 속성값이 특정 값으로 "시작"하는 요소 선택 <br>
+    선택자[속성$=특정값] : 속성값이 특정값으로 "끝"나는 요소 선택 <br>
+    선택자[속성*=특정값] : 속성값에 특정값을 "포함"하는 요소 선택 <br>
+</p>
+
+
+<input type="text"> <br>
+<input type="number"  class="test test1"> <br>
+<input type="radio"> <br>
+<input type="checkbox"> <br>
+<input type="button" value = "button" class="test2"> <br>
+
+
+<script>
+    /*
+    $(function(){
+        
+        $("input[class]").css("backgroundColor", "red");
+
+        $("input[type=text]").val("change value");
+        // .val() : 선택된 요소의 value 속성과 관련된 기능을 수행
+
+        $("input[class~=test]").val("1234"); //단어로써 포함하기 때문에 버튼은 제외
+
+        $("input[type^=ra]").attr("checked", true); 
+        // attr() : 지금까지 한 것 외의 속성들과 관련된 기능 수행
+
+        $("input[type$=box]").attr("checked", true);
+
+        $("input[class*=st2]").css({width:"100px", height : "100px"});
+        $("input[class*=st2]").val("왕버튼")
+
+        $("input[class*=st2]").css({width:"100px", height : "100px"}).val("왕버튼"); //위 두줄과 같음
+    })
+    */
+</script>
+
+<hr>
+
+<h3>* 입력양식 선택자 (input 태그의 type 속성에 따라서 요소 선택)</h3>
+
+텍스트 상자 : <input type="text"> <br>
+일반 버튼 : <input type="button"> <br>
+체크박스  : <input type="checkbox"> <br>
+첨부파일 : <input type="file"> <br>
+비밀번호 : <input type="password" > <br>
+라디오버튼 : <input type="radio"> <br>
+초기화버튼 : <input type="reset"> <br>
+제출버튼   :  <input type="submit"> <br>
+
+
+
+<script>
+    $(function(){
+        //     : => input type
+        $(":text").css("backgroundColor", "red");
+
+        // $(":button").css({width:"100px", height:"100px"}).val("왕버튼");
+
+        // $(":checkbox").attr("checked", "true");
+
+
+        //첨부파일 : 배경색을 연두색으로
+        $(":file").css("backgroundColor", "yellowgreen");
+       
+        //비밀번호  : 배경색을 노란색으로
+        $(":password").css("backgroundColor", "yellow");
+
+        //라디오버튼  : checked상태로 변경하고 가로길이 50px, 세로길이 50px
+        // $(":radio").attr({"checked" : true}).css({width : "50px", height : "50px"});
+        $(":radio").attr("checked" , true).css({width : "50px", height : "50px"});   //위와 같음
+
+        //초기화버튼   : 배경색을 파란색으로, 글자색을 흰색으로, 테두리 없애기, 문구를 취소로 변경
+        $(":reset").css({backgroundColor :"blue", color : "white", border : "0px"}).val("취소");
+        //border : "none"도 가능
+        
+        //제출버튼 : 클릭시 alert("ㅋㅋ")
+        $(":submit").click(function(){
+            // alert('ㅋㅋㅋ');
+            //alert($(":password").val());   //아무것도 안쓰고 호출하면 해당 요소의 value값 리턴
+            //alert($(":text").val());  //input type=text는 여러개존재=> 이럴 경우 첫번쨰 요소의 value값 가져옴
+            alert($(":text").eq(1).val());   //eq 이용해 특정 요소만 선택가능
+        });
+
+        //mouseenter : 선택된 요소의 경계 내부로 마우스가 들어가는 순간 발생하는 이벤트
+
+        $(":submit").mouseenter(function(){
+            // $(this).css("backgroundColor", "purple");
+            $(this).addClass("test");
+            //.addClass() : 선택된 요소에 클래스를 추가해주는 메소드
+        })
+        
+        //mouseout : 선택된 요소의 경계 외부로 마우스가 나갈 때 발생하는 이벤트
+        $(":submit").mouseout(function(){
+            // $(this).css("backgroundColor","");  //이렇게 아무런값도 안써주면 원상복구임
+            $(this).removeClass("test");
+            //.removeClass(): 선택된 요소에 클래스를 제거해주는 메소드
+        })
+        });
+    </script> <hr>
+
+ 
+
+
+    <h3>* 상태(checked, selected, disabled, enabled) 선택자</h3>
+ 
+    <h4>- checked 상태선택자(radio, checkbox)</h4>
+
+    
+    취미 : 
+    <input type="checkbox" name="hobby" value="game">게임
+    <input type="checkbox" name="hobby" value="movie">영화
+    <input type="checkbox" name="hobby" value="music">음악 
+
+    <br><br>
+
+    <!-- <button type="button" id="btn">실행확인</button> -->
+
+    
+    <script>
+        $(function(){
+            //해당 버튼을 클릭시 현재 checked 상태인 요소 선택해서 스타일 부여
+            
+            /*
+            $("#btn").click(function(){
+                $("input:checked").css({width : "50px", height:"50px"});
+                //체크 해제해도 크기가 원상복구가 안됨
+            })
+            */
+            
+
+            // checkbox인 요소들에 change 이벤트 발생 시 
+            $(":checkbox").change(function(){
+                // console.log("값 변경됨");
+                // console.log($(this).prop("checked"));
+                //.prop(속성명) : 내가 제시한 속성값 리턴 -> 속성명 : 위 checkbox의 경우 type, name, value
+
+                if($(this).prop("checked")){
+                    $(this).css({width : "50px" , height: " 50px"});
+                }else{
+                    $(this).css({width : "", height : ""});
+                }
+            })
+        });
+    </script>
+    
+    
+
+
+<h4>selected 상태 선택자 (select>option)</h4>
+
+국적 : 
+<select name="national">
+    <option value="x">선택안함</option>
+    <option value="ko">한국</option>
+    <option value="us">미국</option>
+    <option value="eu">영국</option>
+</select>
+
+
+<button  type="button" onclick="test();">확인</button>
+<br>
+선택한 나라 : <span id="result">선택안함</span>
+
+<script>
+    function test(){
+        $(function(){
+            //현재 선택된 (selected 상태) option 요소 가져오기
+            console.log($("option:selected").val());
+            console.log($("option:selected").html());
+
+            // $("#result").html($("option:selected").val());
+            $("#result").html($("option:selected").html());
+        })
+    }
+</script>
+
+<h4>- disabled, enabled 상태선택자(input요소들, button 등) </h4>
+
+<button type="button">활성화버튼</button>
+<button type="button" disabled>비활성화버튼</button>
+
+<script>
+    $(function(){
+        $("button:enabled").css("backgroundColor", "yellowgreen");
+        $("button:disabled").css("backgroundColor", "orangered");
+    })
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br>   
+<br><br><br><br><br><br><br><br><br><br><br><br>   
+<br><br><br><br><br><br><br><br><br><br><br><br>   
+<br><br><br><br><br><br><br><br><br><br><br><br>      
+</body>
+</html>
