@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="resources/js/jquery-3.6.3.min.js"></script>
+    <style>
+        .added{color: palegreen;}
+
+        .item{
+            background-color: yellowgreen;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;  /*높이랑 똑같이 하면 정가운데에 배치됨*/
+            margin: 5px;
+        }
+
+        .item span{
+            font-size: 25px;
+            color: white;
+            font-weight: bolder;
+        }
+
+        .purple{
+            background-color: purple;
+        }
+    </style>
+
+
+</head>
+<body>
+    <h1>요소 생성 및 제거</h1>
+
+    <h3>* 동적으로 요소 생성</h3>
+
+    <button id="btn">요소생성</button>
+    <div id="area1"></div>
+
+    <script>
+        $(function(){
+            $("#btn").click(function(){
+                //<p>~~~~~~</p>
+
+                // 1. 문자열로 만드는 방법
+                let el1 = "<p>Create Element By Text</p>";
+
+                // 2. DOM 메소드로 만드는 방법(createElement, createTextNode)
+                let el2 = document.createElement("p");  // <p></p>
+                let text = document.createTextNode("Create Element By DOM"); //Create Element By DOM
+
+                el2.appendChild(text);  // <p>Create Element By DOM</p>
+
+                // 3. jQuery로 만드는 방법
+                let el3 = $("<p></p>").text("Create Element By jQuery");
+
+                console.log(el1);
+                console.log(el2);
+                console.log(el3);
+
+                $("#area1").append(el1,el2,el3);  //자손으로 여러개 추가 
+            })
+        })
+    </script>
+
+    <hr>
+
+    <h3>* 삽입 관련 메소드 part1</h3>
+    <p>
+        선택된 요소를 기준으로 새로운 요소를 추가시켜주는 메소드 <br><br>
+
+        $(A).append(B) : A 요소 내에 뒷부분에 B를 추가(자손/하위) <br>
+        $(A).prepend(B) : A요소 내에 앞부분에 B를 추가 (자손/하위) <br>
+
+        $(A).after(B) : A요소 뒷부분에 B를 추가 (동위) <br>
+        $(A).before(B) : A요소 앞부분에 B를 추가 (동위) <br>
+    </p>
+
+    <h3>* 삽입관련 메소드 part2</h3>
+    <p>
+        $(B).appendTo(A) : B요소를 A요소 내에 뒷부분에 추가 (자손/하위) <br>
+        $(B).prependTo(A) : B요소를 A요소 내에 앞부분에 추가 (자손/하위) <br>
+
+        $(B).insertAfter(A) : B를 A요소 뒤에 추가 (동위) <br>
+        $(B).insertBefore(A) : B를 A요소 앞에 추가 (동위) <br>
+    </p>
+
+
+
+    <h1 id="test1">
+        <span>A</span>
+    </h1>
+    <h1 id="test2">
+        <span>A</span>
+    </h1>
+    <h1 id="test3">
+        <span>A</span>
+    </h1>
+    <h1 id="test4">
+        <span>A</span>
+    </h1>
+    
+    <script>
+        /*part1
+        $("#test1").append("<span class='added'>B</span>");  //자손으로 붙음
+        $("#test2").prepend("<span class='added'>B</span>");  //자손으로 붙음
+
+        $("#test3").before("<span class='added'>B</span>");  //동위
+        $("#test4").after("<span class='added'>B</span>");  //동위
+        */
+
+        //part2
+        $("<span class='added'>B</span>").appendTo("#test1");  //자손으로 붙음
+        $("<span class='added'>B</span>").prependTo("#test2"); //자손으로 붙음
+
+        $("<span class='added'>B</span>").insertBefore("#test3"); //동위
+        $("<span class='added'>B</span>").insertAfter("test4");   //동위
+
+    </script>
+
+    <hr>
+
+    <h3>* 요소 객체 복제 메소드</h3>
+
+    <p>
+        변수 = $("선택자").clone([true|"false"]) :  선택된 요소를 복제해서 반환해주는 메소드 <br>
+        true|false : 복제할 요소에 걸려있는 이벤트까지도 복사할껀지 지정 (기본값 : false)
+    </p>
+
+    <div id="clone-test">
+
+        <!-- 복제할 요소 -->
+        <div id="item1" class="item">
+            <span>안뇽</span>
+        </div>
+    </div>
+
+    <button id="clone">복제</button>
+
+    <div id="clone-result"></div>
+
+    <script>
+        $(function(){
+            // 복제할 요소에 hover 이벤트 (마우스엔터 + 마우스아웃 => 함수2개 필요) 
+            $(".item").hover(function(){
+                $(this).addClass("purple");
+            }, function(){
+                $(this).removeClass("purple");
+            });
+
+            // 복제버튼 클릭 시 #item1 요소 복사해서 또 다른 div에 붙여넣기
+            $("#clone").click(function(){
+               // const copy = $("#item1").clone();   //clone 기본값 false => 이벤트는 복사 X
+
+                //const copy = $("#item1").clone(true);  //이벤트까지 복사
+                //$("#clone-result").append(copy);
+
+                //위의 두 줄을 한줄로
+                $("#clone-result").append($("#item1").clone(true));     //part1 방식
+                
+                $("#item1").clone(true).appendTo("#clone-result");      //part2 방식
+
+            })
+        })
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br>
+</body>
+</html>

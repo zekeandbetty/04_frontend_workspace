@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="resources/js/jquery-3.6.3.min.js"></script>
+
+
+</head>
+<body>
+    <h1>Content 영역(innerHTML, innerText) 관련 메소드</h1>
+
+    <h3>* html(["문구"]) 메소드 : innerHTML 속성과 관련된 메소드</h3>
+    <p>
+        선택된 요소의 content 영역의 값을 리턴해주거나 또는 변경해주는 메소드 <br>
+        > $("선택자").html() : 선택된 요소의 content 영역 값을 반환해줌 (html 태그까지 포함) <br>
+        > $("선택자").html("문구") : 선택된 요소의 content 영역 값을 해당 문구로 변경해줌(html태그가 존재할 경우 태그로서 해석해줌)
+
+    </p>
+
+
+    <h1 id="test1">
+        <a>네이버로</a>
+    </h1>
+
+    <h1 id="test2"></h1>
+
+    <script>
+        $(function(){
+            // 순수 자바스크립트 방식
+            //const tmp = document.getElementById("test1").innerHTML;
+
+            //제이쿼리방식
+            const tmp =  $("#test1").html();
+            console.log(tmp); //tmp == "<a>네이버로</a>"
+
+            // $("#test2").html("ㅋㅋㅋ");
+            $("#test2").html(tmp);
+            $("#test2").children().attr("href", "http://www.naver.com");
+
+
+        });
+    </script>
+    <hr>
+
+    <h3>* text(["문구"]) 메소드 : innerText 속성과 관련된 메소드</h3>
+    <p>
+        선택된 요소의 content영역의 값을 리턴해주거나 변경해주는 메소드 <br>
+        > $("선택자").text() : 선택된 요소의 content 영역 반환해줌(단, html 태그 포함x 오로지 텍스트만) <br>
+        >$("선택자").text("문구") : 선택된 요소의 content 영역을 전달값으로 변경해줌
+        (단, html 태그가 존재할 경우에는 태그로 해석 x)
+    </p>
+
+    <h1 id="test3">
+        <a>구글로</a>
+    </h1>
+            
+    <h1 id="test4"></h1>
+
+    <script>
+        $(function(){
+            //순수 자바스크립트 방식
+            // const tmp = document.getElementById("test3").innerText; //텍스트만 가져옴
+
+            //제이쿼리 방식
+            const tmp = $("#test3").text();
+            console.log(tmp); //tmp == "구글로"
+
+            // $("#test4").text("ㅋㅋㅋㅋ");
+            $("#test4").text(tmp);
+            $("#test4").text("<a>" + tmp + "</a>");  //=> 안됨
+        })
+    </script>
+
+    <hr>
+
+    <div class="test">테스트1</div>
+    <div class="test">테스트2</div>
+    <div class="test">테스트3</div>
+
+    <script>
+        $(function(){
+            // $(".test").html("<h1>ㅋㅋㅋ</h1>");
+
+            //선택된 요소들에 순차적으로 접근할 떄 마다 해당 function 실행됨
+            //이떄 함수 실행시 리턴된 값으로 문구 변경
+            //콜백 함수 : 함수 실행 후 반환된 결과값을 가지고 반영
+
+            /*
+            let count = 0;
+            $(".test").html(function(){
+                return "<h1>ㅋㅋㅋ" + count++ + "</h1>";
+            })
+            */
+
+            //해당 function이 호출될 떄마다 
+            //첫번쨰 인자값으로는 순차적으로 접근하는 요소의 인덱스 수를 전달
+            //두번째 인자값으로는 순차적으로 접근하는 요소의 content영역 값 (innerHTML 속성값) 전달
+
+            $(".test").html(function(index,html){    //index는 임의로 지은것임
+                // return "ㅋㅋㅋ";
+                return "<h1>인덱스 : " + index + ", content 내용 : " + html + "</h1>";
+            })
+        })
+
+        //text()도 마찬가지로 작동
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
