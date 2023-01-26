@@ -165,46 +165,74 @@
             })
         })
     </script>
+    <hr>
 
+    <h3>* 요소 객체 제거 및 잘라내기 메소드</h3>
+    <p>
+        $("선택자").empty() : 그 요소의 하위 요소를 삭제함. 그러니까 상위 요소를 선택해야함
+        변수 = $("선택자").remove|detach() : 선택된 요소 제거 후 해당 제거된 요소를 반환(잘라내기) <br>
+        >remove() : 잘라내기시 잘라낸 요소의 이벤트 안가져옴 <br>
+        >detach() : 잘라내기시 잘라낸 요소의 이벤트까지도 가져옴 <br>
+    </p>
 
+    <div id="remove-test">
 
+        <!-- 제거할 요소 -->
+        <div id="item2" class="item">
+            <span>바이</span>
 
+        </div>
 
+    </div>
 
+    <button id="empty">제거</button>
+    <button id="remove">잘라내기1</button>
+    <button id="detach">잘라내기2</button>
 
+    <div id="remove-result">
 
+    </div>
 
+    <script>
+        $(function(){
+            $("#empty").click(function(){
+                // $("#item2").empty(); // 하위항목이라 span만 지워짐
+                $("#remove-test").empty(); // #remove-test 요소 안을 비우겠다는 의미
+            });
 
+            $("#remove").click(function(){
+                const el =  $("#item2").remove();
+                $("#remove-result").append(el); 
+            })
 
+            $("#detach").click(function(){
+                const el = $("#item2").detach();
+                $("#remove-result").append(el);
+            })
+        })
+    </script>
 
+    <!-- 
+        요소.val("문구") : 변경
+        요소.val() : 반환
 
+        요소.css("스타일속성", "값") : 변경
+        요소.css("스타일속성") : 반환
 
+        요소.html|text("문구") : 변경(innerHTML|innerText)
+        요소.html() : 반환
 
+        요소.attr("그외속성명", 값) : 변경
+        요소.attr("그외속성명") : 반환
 
+        요소.이벤트(function(){})
 
+        요소.addClass("클래스명")
+        요소.removeClass("클래스명")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        그 외 필터링 메소드
+        요소탐색 (parents(), children(), find(), siblings())
+     -->
     <br><br><br><br><br><br><br><br>
     <br><br><br><br><br><br><br><br>
     <br><br><br><br><br><br><br><br>
