@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="resources/js/jquery-3.6.3.min.js"></script>
+    
+
+
+</head>
+<body>
+    <h1>시각적인 효과 (Effect)</h1>
+    <p>페이지 내에 애니메이션 효과를 주기 위해 사용되는 메소드 집합</p>
+
+    <h3>* show()와 hide(), toggle()</h3>
+    <p>선택된 요소가 점점 커지면서 보여지고, 점점 작아지면서 사라지게 하는 메소드</p>
+
+    <button id="hide">숨기기</button>
+    <button id="show">보여주기</button>
+    <button id="toggle">토글</button>
+
+    <br><br>
+
+    <!-- <img src="../02_CSS3/resources/image/city1.PNG" alt=""> ../로 뒤로가서 폴더 선택   -->
+    <!-- f12로 이미지 주소 복사해서 끌고옴 -->
+    <img src="https://postfiles.pstatic.net/MjAyMjEyMThfNzcg/MDAxNjcxMzcxNjEzNzc3.djZ6xLnVZJwWToT6U8HSXHcNzKq5ePdHFDvCSuy8_WAg.sYC8IfFN4uQ4OAPC3Eb-d0PgqrMRXz8d--QbXNQvt9Qg.JPEG.hyojeongzzang46/IMG_2628.jpg?type=w773" id="sh" width="500px" height="400px">
+
+    <br><br>
+
+    <div id="area" style="width: 100px; height: 100px; background-color: red;"></div>
+
+    <script>
+        $(function(){
+            $("#hide").click(function(){
+                // $("#sh").hide();
+                $("#sh").hide(1500);        //1500 -> 밀리세컨드
+                $("#area").hide(1500);
+            });
+
+            $("#show").click(function(){
+                // $("#sh").show();
+                $("#sh").show(1500);
+            })
+
+            $("#toggle").click(function(){
+                $("#sh").toggle(2000);
+            })
+        })
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
