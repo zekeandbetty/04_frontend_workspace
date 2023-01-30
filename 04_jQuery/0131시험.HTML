@@ -65,32 +65,52 @@
         <form action="#">
         <div>
             <p id="idInput">아이디</p> 
-            <input type="text" id="id" style="margin: 0px 0px 0px 52px;">
-            <button style="margin: 0px 0px 0px 7px;">중복확인</button> <br>
+            <input type="text" id="id" required style="margin: 0px 0px 0px 52px;">
+            <button onclick="return idCheck();" style="margin: 0px 0px 0px 7px;">중복확인</button> <br>
 
            
             <p>비밀번호</p>
-            <input type="password" id="pwd" style="margin: 0px 0px 0px 37px;"> <br>
+            <input type="password" id="pwd" required style="margin: 0px 0px 0px 37px;"> <br>
 
             <p>비밀번호확인</p>
-            <input type="password" id="pwdcheck" style="margin: 0px 0px 0px 5px;"> <br>
+            <input type="password" id="pwdcheck" required style="margin: 0px 0px 0px 5px;"> <br>
         </div>
 
             <p style="margin: 10px 60px 0px 0px;">지역</p>
-            서울<input type="radio" name="region" value="seoul">  
-            부산<input type="radio" name="region" value="busan">  
-            대구<input type="radio" name="region" value="daegu">  <br>
+            <label for="">서울<input type="radio" name="region" value="seoul"> </label> 
+            <label for="">부산<input type="radio" name="region" value="busan"></label>   
+            <label for="">대구<input type="radio" name="region" value="daegu"></label>   <br>
 
 
             <div id="btns1">
             <input type="submit" value="초기화" id="reset" style="margin: 20px;">
-            <input type="submit" value="회원가입" id="enroll">
+            <input type="submit" value="회원가입" id="enroll" onclick="return enrollment();">
             </div>
         </form>
     </fieldset>
 
     <!-- 첫글자 영어소문자 숫자,!@# 6~12글자 문자열 -->
-   
+    <script>
+		function idCheck() {
+			const userId = document.getElementById("id");
+			let regExp = /^[a-z][a-z0-9!@#]{5,11}$/;
+
+			if (!regExp.test(id.value)){
+				id.style.backgroundColor = "red";
+			} else {
+				id.style.backgroundColor = "green";
+			}
+		}
+
+		function enrollment() {
+			let radioButton = document.querySelector('input[type=radio][name=region]:checked');
+
+			if (!radioButton){
+				alert("지역을 선택해주세요.");
+				return false;
+			}
+		}
+	</script>
 
 
 
