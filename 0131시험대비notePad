@@ -1,0 +1,30 @@
+0130
+1.제이쿼리 연동방법 => 폴더를 복잡하게 구성해서 나오지 않을까  script src ../
+
+2.input type 속성 text, password...
+
+3. div태그, span 태그의 차이점 (블럭요소, 인라인요소..)
+
+4. infinity, NaN, eval(인자) 이런것들 (윈도우 전역객체 속성)
+
+5. typeof() 이게 뭐냐
+
+6. document 메소드들..getElementId, getElementsClassName
+** 클래스 속성이 abc를 갖는 값을 변수 abc에 할당해라.
+const abc = document.getElementsClassName("abc");
+
+7. window.onload(); 이게 뭔지, 특징은?
+단 한번만 사용이 가능
+모든 화면이 렌더링 되고 난 뒤에 한번 실행
+
+8.자바스크립트를 작성하는 방법3가지 -내부,외부,인라인
+
+9. 자바스크립트에서 배열 선언하는 방법 -2가지
+let arr = [];
+let arr = new Array();
+
+10.block scope, function scope 이게 뭐냐 => {} 뭐가 다르냐
+
+11. undefined가 언제뜨는지? => 값을 할당받지 못한 상태일 때
+
+12. 원시타입과 참조타입(객체,배열,함수) 차이점, 종류

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="../04_jQuery/LCH/resources/js/jquery-3.6.3.min.js"></script>
+
+    <style>
+        .tab_basic{
+    border-bottom: 1px #666 solid;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.3;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+
+    div{
+    margin: 0;
+    padding: 0;
+    max-height: 100000px;
+    display: block;
+}
+
+.tab_basic.fullsize>ul {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.tab_basic.fullsize>ul {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.tab_basic>ul {
+    display: table;
+    margin-bottom: -1px;
+}
+
+ul{
+    list-style: none;
+}
+
+.tab_basic>ul>li.on {
+    border-color: #666;
+    border-right: 1px #666 solid;
+    border-bottom-color: #fff;
+    background: #fff;
+    position: relative;
+    cursor: default;
+    color: #333;
+}
+.tab_basic>ul>li {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px #ddd solid;
+    border-bottom-color: #666;
+    border-right: none;
+    background: #f4f4f4;
+    cursor: pointer;
+}
+li {
+    list-style: none;
+}
+ li{
+    margin: 0;
+    padding: 0;
+    max-height: 100000px;
+}
+
+.tab_basic {
+    border-bottom: 1px #666 solid;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.3;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <div id="memberSelect" class="tab_basic fullsize">
+		<ul>
+			<li class="on"><a href="javascript:void(0)"><span designelement="text" textindex="3" texttemplatepath="cmVzcG9uc2l2ZV92ZXIxX2RlZmF1bHRfZ2wvbWVtYmVyL2pvaW5fZ2F0ZS5odG1s">개인회원</span></a></li>
+			<li><a href="javascript:void(0)"><span designelement="text" textindex="4" texttemplatepath="cmVzcG9uc2l2ZV92ZXIxX2RlZmF1bHRfZ2wvbWVtYmVyL2pvaW5fZ2F0ZS5odG1s">사업자회원</span></a></li>
+		</ul>
+	</div>
+
+    
+    
+</body>
+</html>
