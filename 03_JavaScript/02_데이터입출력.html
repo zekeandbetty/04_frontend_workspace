@@ -79,8 +79,8 @@
         console.log(divEl.innerText); //innerText  :요소의 content 영역 안의 텍스트만 포함(html 태그 x)
 
         // 해당 요소의 속성값 변경도 가능 : 속성에 접근 후 대입을 통해 변경
-        // divEl.innerHTML = "<b>innerHTML로 속성값 변경함~</b>"
-        divEl.innerText = "<b>innerHTML로 속성값 변경함~</b>";
+        // divEl.innerHTML = "<b>innerHTML로 속성값 변경함~</b>"  //태그는 안보여주고 대신 글꼴에 적용
+        divEl.innerText = "<b>innerHTML로 속성값 변경함~</b>";   //태그까지 다 끌고와버리고 적용은 X
 
         divEl.style.backgroundColor = "yellow";
         divEl.style.color = "red";
