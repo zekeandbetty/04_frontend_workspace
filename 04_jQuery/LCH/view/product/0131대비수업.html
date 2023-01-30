@@ -61,7 +61,7 @@
     
     <h3>* 원시타입</h3>
     <p>
-         -종류 : 숫자형, 문자형, 논리형, null, undefined(할당(값 세팅)받지 못한 상태) <br>
+         -종류 : 숫자형, 문자형, 논리형, null, undefined  이것들->(할당(값 세팅)받지 못한 상태) <br>
          -특징  : 원본이 바뀌어도 복사본은 변경되지 않음 (리터럴 그 자체)
     </p>
 
@@ -84,13 +84,18 @@
     </p>
     
     <script>
-        let student1 = {name:"차은우"};
+        let student1 = {name:"차은우"};  //name은 그냥 임의로 지은것
         let student2 = student1;
 
+        
         student1.name = "차으누";
 
         console.log(student1);
         console.log(student2);
+
+        let student3 = {namw:"차은우123"};
+        console.log(student3);
+
 
     </script>
 
