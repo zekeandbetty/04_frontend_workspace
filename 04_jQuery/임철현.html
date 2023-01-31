@@ -1,0 +1,97 @@
+<html lang="en"><head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<style>
+		fieldset {
+			width: 400px;
+		}
+
+		td {
+			padding-left: 10px;
+			padding-top: 5px;
+		}
+	</style>
+</head>
+
+<body>
+	<fieldset>
+		<legend>회원 가입 양식</legend>
+		<form action="insert.me" method="get">
+			<table>
+				</table><table>
+					<tbody><tr>
+						<td>아이디</td>
+						<td><input type="text" id="userId" required=""></td>
+						<td><button onclick="return idCheck();">중복확인</button></td>
+					</tr>
+					<tr>
+						<td>비밀번호</td>
+						<td><input type="password" required=""></td>
+					</tr>
+					<tr>
+						<td>비밀번호확인</td>
+						<td><input type="password" required=""></td>
+					</tr>
+					<tr>
+						<td>지역</td>
+						<td>
+							<label for="">서울
+								<input type="radio" name="local">
+							</label>
+
+							<label for="">부산
+								<input type="radio" name="local">
+							</label>
+
+							<label for="">대구
+								<input type="radio" name="local">
+							</label>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3" style="text-align:center;">
+							<input type="reset"> 
+							<input type="submit" value="회원가입" onclick="return access();">
+						</td>
+					</tr>
+				</tbody></table>
+
+                <input type="reset">
+                
+			
+		</form>
+	</fieldset>
+
+    typeof(13)
+
+	<script>
+		function idCheck() {
+			const userId = document.getElementById("userId");
+			let regExp = /^[a-z][a-z0-9!@#]{5,11}$/;
+
+			if (!regExp.test(userId.value)){
+				userId.style.backgroundColor = "red";
+			} else {
+				userId.style.backgroundColor = "green";
+			}
+		}
+
+        document.querySelector
+
+		function access() {
+			let radios = document.querySelector('input[type=radio][name=local]:checked');
+
+			if (!radios){
+				alert("지역을 선택해주세요.");
+				return false;
+			}
+		}
+
+        typeof number;
+	</script>
+
+
+</body></html>

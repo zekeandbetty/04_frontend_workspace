@@ -1,0 +1,84 @@
+1.제이쿼리 연동방법 => 폴더를 복잡하게 구성해서 나오지 않을까  script src ../
+
+2.input type 속성 text, password...
+button checkbox date email hidden image number radio range reset search submit url
+
+
+3. div태그, span 태그의 차이점 (블럭요소, 인라인요소..)
+div - 블럭요소 박스형태로 영역설정됨
+span - 인라인요소 문장단위로 영역설정됨
+
+4. infinity, NaN, eval(인자) 이런것들 (윈도우 전역객체 속성)
+
+5. typeof() 이게 뭐냐
+자료형(변수타입)반환해주는 연산자
+
+6. document 메소드들..getElementId, getElementsClassName
+** 클래스 속성이 abc를 갖는 값을 변수 abc에 할당해라.
+const abc = document.getElementsClassName("abc");
+
+7. window.onload(); 이게 뭔지, 특징은?
+단 한번만 사용이 가능
+모든 화면이 렌더링 되고 난 뒤에 한번 실행
+자바스크립트는 위에서 아래로 한번에 코드를 실행하기 떄문에 코드작성순서에 따라 영향을 받는데 
+이를 막기위해 사용
+<script>
+    window.onload = function(){
+       var a = document.getElementById( 'hi' ).innerHTML = "hello";
+    }
+    
+    </script>
+    <span id = "hi">hi</span>
+
+8.자바스크립트를 작성하는 방법3가지 -내부,외부,인라인
+인라인-태그 내에 직접 자바스크립트 명령어를 작성하는 방법
+<body>
+    <h1 onclick="alert('seobtudy');">click</h1>
+</body>
+
+내부-태그 내에 직접 자바스크립트 명령어를 작성하는 방식 ,<script> 태그내에 작성, <body> 영역에 작성
+<body>
+  <h1 id="internal">click</h1>
+  <script>
+    var internal = document.getElementById("internal");
+    internal.onclick = function () {
+      alert("seobtudy");
+    };
+  </script>
+</body>
+
+외부-HTML과 자바스크립트를 분리해서 외부 파일로 분리하는 방식,
+HTML 문서에 불러올 때 <script> 태그에 src 속성에 자바스크립트 파일의 경로와 파일명을 입력
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+   <title>Document</title>
+    <script async src="./main.js"></script>
+  </head>
+  <body>
+    <h1 id="external">click</h1>
+    <!-- <script></script>가 여기에 위치해도 동일합니다 -->
+  </body>
+</html>
+// main.js
+var internal = document.getElementById("external");
+internal.onclick = function () {
+    alert("seobtudy");
+};
+  
+
+9. 자바스크립트에서 배열 선언하는 방법 -2가지
+let arr = [];  const arr1 = ['apple', 1, true, [100, 200]];  arr.length=4
+let arr = new Array();   const arr3 = new Array('red', 'green', 'blue');
+
+10.block scope, function scope 이게 뭐냐 => {} 뭐가 다르냐
+var는 function scope이고, let, const는 block scope이다.
+function scope는 함수(function) 단위, block scope는 대괄호({})를 단위로 범위를 정한다.
+
+11. undefined가 언제뜨는지? => 값을 할당받지 못한 상태일 때
+
+12. 원시타입과 참조타입(객체,배열,함수) 차이점, 종류
+원시타입 : 종류 : 숫자형, 문자형, 논리형, null, undefined  이것들->(할당(값 세팅)받지 못한 상태) <br>
+-특징  : 원본이 바뀌어도 복사본은 변경되지 않음 (리터럴 그 자체)
+참조타입 : 종류 : 함수, 배열, 객체 <br>
+- 특징 : 원본이 바뀌면 복사본도 똑같이 따라서 바뀜 (주소값을 바라봄) <br>
